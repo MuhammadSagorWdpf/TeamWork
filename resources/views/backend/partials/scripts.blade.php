@@ -1,7 +1,7 @@
-<script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{asset('assets/js/jquery-3.7.1.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.umd.min.js"></script>
-    <script src="{{ asset('assets/js/plugins.js') }}"></script>
-    <script src="{{  asset('assets/js/main.js') }}"></script>
+    <script src="{{asset('assets/js/plugins.js') }}"></script>
+    <script src="{{asset('assets/js/main.js') }}"></script>
 
     <script
     type="text/javascript"
@@ -59,7 +59,7 @@
   // Initialize the easepick picker
   const picker = new easepick.create({
     element: document.getElementById("calendar-container"),
-    css: ["./assets/css/plugins/easepick.css"],
+    css: ["{{asset('assets/css/plugins/easepick.css')}}"],
     inline: true, // Display the calendar inline (always visible)
     calendars: 1,
     lang: "en-US",

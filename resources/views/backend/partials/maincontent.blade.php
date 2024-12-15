@@ -10,7 +10,7 @@
                 <div class="order-card">
                   <div class="order-card-image">
                     <img
-                      src="./assets/images/doctor-img.png"
+                      src="{{asset('assets/images/doctor-img.png')}}"
                       alt="Half Day Trip"
                       class="order-image"
                     />
@@ -34,7 +34,8 @@
                 <div class="order-card">
                   <div class="order-card-image">
                     <img
-                      src="./assets/images/doctor-img.png"
+                  
+                      src="{{asset('assets/images/doctor-img.png')}}"
                       alt="Half Day Trip"
                       class="order-image"
                     />
@@ -58,7 +59,7 @@
                 <div class="order-card">
                   <div class="order-card-image">
                     <img
-                      src="./assets/images/doctor-img.png"
+                     src="{{asset('assets/images/doctor-img.png')}}"
                       alt="Half Day Trip"
                       class="order-image"
                     />
@@ -82,7 +83,7 @@
                 <div class="order-card">
                   <div class="order-card-image">
                     <img
-                      src="./assets/images/doctor-img.png"
+                      src="{{asset('assets/images/doctor-img.png')}}"
                       alt="Half Day Trip"
                       class="order-image"
                     />
@@ -106,7 +107,7 @@
                 <div class="order-card">
                   <div class="order-card-image">
                     <img
-                      src="./assets/images/doctor-img.png"
+                     src="{{asset('assets/images/doctor-img.png')}}"
                       alt="Half Day Trip"
                       class="order-image"
                     />
@@ -130,7 +131,7 @@
                 <div class="order-card">
                   <div class="order-card-image">
                     <img
-                      src="./assets/images/doctor-img.png"
+                     src="{{asset('assets/images/doctor-img.png')}}"
                       alt="Half Day Trip"
                       class="order-image"
                     />
@@ -169,7 +170,7 @@
                   <div class="item-left">
                     <div class="number">#1</div>
                     <div class="doctor-img">
-                      <img src="./assets/images/doctor-img.png" alt="">
+                      <img src="{{asset('assets/images/doctor-img.png')}}" alt="">
                     </div>
                   </div>
                   <div class="item-right">
@@ -196,7 +197,7 @@
                   <div class="item-left">
                     <div class="number">#2</div>
                     <div class="doctor-img">
-                      <img src="./assets/images/doctor-img.png" alt="">
+                    <img src="{{asset('assets/images/doctor-img.png')}}" alt="">
                     </div>
                   </div>
                   <div class="item-right">
@@ -223,7 +224,7 @@
                   <div class="item-left">
                     <div class="number">#3</div>
                     <div class="doctor-img">
-                      <img src="./assets/images/doctor-img.png" alt="">
+                    <img src="{{asset('assets/images/doctor-img.png')}}" alt="">
                     </div>
                   </div>
                   <div class="item-right">
