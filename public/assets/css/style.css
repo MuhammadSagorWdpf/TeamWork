@@ -126,6 +126,7 @@ main {
   font-weight: 700;
   line-height: 132%;
   letter-spacing: -0.32px;
+  margin-left: 20%;
 }
 
 /* main design start */
@@ -971,7 +972,8 @@ table .view-profile-btn {
     display: none;
   }
   .main-content-header {
-    padding: 24px 0px;
+    cursor: pointer;
+    padding: 24px 2rem ;
     display: flex;
   }
   .pagination {
