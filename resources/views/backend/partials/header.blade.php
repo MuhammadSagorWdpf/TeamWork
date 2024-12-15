@@ -56,7 +56,7 @@
               </div>
               <div style="width: 36px; height: 36px;" class="">
                 <img style="width: 100%;
-                height: 100%; border-radius: 50%; object-fit: cover; " src="./assets/images/user.png" alt="">
+                height: 100%; border-radius: 50%; object-fit: cover; " src="{{ asset('assets/images/user.png') }}" alt="">
               </div>
             </div>
           </div>
