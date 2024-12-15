@@ -34,7 +34,7 @@
                 <div class="order-card">
                   <div class="order-card-image">
                     <img
-                      src="./assets/images/doctor-img.png"
+                      src="{{ asset('assets/images/doctor-img.png') }}"
                       alt="Half Day Trip"
                       class="order-image"
                     />

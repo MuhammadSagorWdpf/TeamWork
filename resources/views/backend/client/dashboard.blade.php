@@ -2,6 +2,5 @@
 
 
 @section('content')
-    <h1>Client Dashboard</h1>
     @include('backend.partials.maincontent')
 @endsection

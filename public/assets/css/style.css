@@ -126,9 +126,10 @@ main {
   font-weight: 700;
   line-height: 132%;
   letter-spacing: -0.32px;
+}
+.header-title{
   margin-left: 20%;
 }
-
 /* main design start */
 .layout-container {
   display: flex;
