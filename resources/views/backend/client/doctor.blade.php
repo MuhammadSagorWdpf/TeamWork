@@ -1,6 +1,4 @@
 @extends('backend.app')
-
-
 @section('content')
-    @include('backend.partials.maincontent')
+    @include('components.doctors')
 @endsection

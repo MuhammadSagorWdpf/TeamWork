@@ -126,9 +126,10 @@ main {
   font-weight: 700;
   line-height: 132%;
   letter-spacing: -0.32px;
+}
+.header-title{
   margin-left: 20%;
 }
-
 /* main design start */
 .layout-container {
   display: flex;
@@ -752,6 +753,7 @@ main {
   font-weight: 400;
   line-height: 150%;
 }
+
 .invoice-details .right {
   display: flex;
   flex-direction: column;
@@ -804,11 +806,11 @@ main {
   border-bottom: 1px solid #f8f8f8;
   padding: 26px 17px;
 }
-.dashboard-bottom .item-left {
+/* .dashboard-bottom .item-left {
   display: flex;
   align-items: center;
   gap: 30px;
-}
+} */
 .dashboard-bottom .item-right {
   gap: 12px;
   display: flex;

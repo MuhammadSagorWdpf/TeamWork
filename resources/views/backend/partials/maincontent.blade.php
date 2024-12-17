@@ -34,6 +34,7 @@
                 <div class="order-card">
                   <div class="order-card-image">
                     <img
+                      src="{{ asset('assets/images/doctor-img.png') }}"
                   
                       src="{{asset('assets/images/doctor-img.png')}}"
                       alt="Half Day Trip"
@@ -252,7 +253,7 @@
             </div>
             <div class="right">
               <div class="dashboard-title">Upcoming Check Up</div>
-              <div style="width: 100%; max-width: 500px;" class="mt-4 mt-md-5">
+              <div style="width: 100%;" class="mt-4 mt-md-5">
                 <p id="calendar-container"></p>
               </div>
             </div>
