@@ -11,6 +11,7 @@
     
     @include('backend.partials.header')
     @include('backend.partials.sidebar')
+    @include('backend.partials.notification')
     @yield('content')
     @include('backend.partials.scripts')
 </body>
