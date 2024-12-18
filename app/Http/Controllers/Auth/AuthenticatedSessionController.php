@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
         elseif ($user == 'doctor') {
             return redirect()->route('doctor.dashboard');
         }
-        return redirect()->route('admin.dashboard'); // redirect to the admin dashboard
+        return redirect()->route('admin-dashboard'); // redirect to the admin dashboard
 
         //return redirect()->intended(route('dashboard', absolute: false));
     }
@@ -51,6 +51,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('about');
     }
 }
