@@ -13,7 +13,8 @@
    
     @yield('content')
     </div>
-   
+    
     @include('backend.admin.partials.notificationmodal')
+    @include('backend.admin.partials.scripts')
 </body>
 </html>
