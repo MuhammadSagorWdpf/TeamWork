@@ -101,7 +101,7 @@ main {
   top: 10px;
   right: 16px;
 }
-.sidebar {
+/* .sidebar {
   min-width: 300px;
   max-width: 300px;
   background-color: #f5f5f5;
@@ -117,7 +117,7 @@ main {
   z-index: 1000;
   left: -300px;
   transition: left 0.3s ease;
-}
+} */
 .sidebar .logo {
   width: 60px;
   height: 50px;
@@ -737,7 +737,7 @@ main {
     font-size: 28px;
   }
   .sidebar {
-    min-width: 360px;
+    width: 360px;
     max-width: 360px;
     background-color: #f5f5f5;
     display: flex;
@@ -746,7 +746,7 @@ main {
     min-height: 100vh;
     max-height: 100vh;
     padding: 24px;
-    position: sticky;
+    position: absolute;
     top: 0;
     bottom: 0;
   }

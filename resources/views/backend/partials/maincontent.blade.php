@@ -190,7 +190,7 @@
                         <path d="M86.6953 0.452219L84.8645 3.81352L80.7682 4.35428C80.0337 4.45075 79.7393 5.27076 80.272 5.74043L83.2355 8.35534L82.5346 12.0492C82.4084 12.7169 83.1851 13.217 83.8355 12.9048L87.5 11.1607L91.1645 12.9048C91.8149 13.2145 92.5916 12.7169 92.4654 12.0492L91.7645 8.35534L94.728 5.74043C95.2607 5.27076 94.9663 4.45075 94.2318 4.35428L90.1355 3.81352L88.3047 0.452219C87.9766 -0.146926 87.0262 -0.154542 86.6953 0.452219Z" fill="#FF5630"/>
                       </svg>
                       <span>315 reviews</span>
-                      <a style="color: #187586; font-size: 14px; text-decoration: underline; " href="./DoctorProfile.html">View Profile</a>
+                      <a style="color: #187586; font-size: 14px; text-decoration: underline; " href="{{ route('doctor.profile') }}">View Profile</a>
                     </div>
                   </div>
                 </div>
@@ -217,7 +217,7 @@
                         <path d="M86.6953 0.452219L84.8645 3.81352L80.7682 4.35428C80.0337 4.45075 79.7393 5.27076 80.272 5.74043L83.2355 8.35534L82.5346 12.0492C82.4084 12.7169 83.1851 13.217 83.8355 12.9048L87.5 11.1607L91.1645 12.9048C91.8149 13.2145 92.5916 12.7169 92.4654 12.0492L91.7645 8.35534L94.728 5.74043C95.2607 5.27076 94.9663 4.45075 94.2318 4.35428L90.1355 3.81352L88.3047 0.452219C87.9766 -0.146926 87.0262 -0.154542 86.6953 0.452219Z" fill="#FF5630"/>
                       </svg>
                       <span>315 reviews</span>
-                      <a style="color: #187586; font-size: 14px; text-decoration: underline; " href="./DoctorProfile.html">View Profile</a>
+                      <a style="color: #187586; font-size: 14px; text-decoration: underline; " href="{{ route('doctor.profile') }}">View Profile</a>
                     </div>
                   </div>
                 </div>
@@ -244,7 +244,7 @@
                         <path d="M86.6953 0.452219L84.8645 3.81352L80.7682 4.35428C80.0337 4.45075 79.7393 5.27076 80.272 5.74043L83.2355 8.35534L82.5346 12.0492C82.4084 12.7169 83.1851 13.217 83.8355 12.9048L87.5 11.1607L91.1645 12.9048C91.8149 13.2145 92.5916 12.7169 92.4654 12.0492L91.7645 8.35534L94.728 5.74043C95.2607 5.27076 94.9663 4.45075 94.2318 4.35428L90.1355 3.81352L88.3047 0.452219C87.9766 -0.146926 87.0262 -0.154542 86.6953 0.452219Z" fill="#FF5630"/>
                       </svg>
                       <span>315 reviews</span>
-                      <a style="color: #187586; font-size: 14px; text-decoration: underline; " href="./DoctorProfile.html">View Profile</a>
+                      <a style="color: #187586; font-size: 14px; text-decoration: underline; " href="{{ route('doctor.profile') }}">View Profile</a>
                     </div>
                   </div>
                 </div>
