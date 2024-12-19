@@ -1,6 +1,3 @@
-<body>
-    
-
 @extends('backend.admin.app')
 @section('content')
 
@@ -708,7 +705,7 @@
   
 </div>
 @endsection
-</body>
+
 <script>
       var options = {
         series: [45, 35, 20], // Values for Excellent, Good, and Poor
