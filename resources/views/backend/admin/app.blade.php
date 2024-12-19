@@ -6,12 +6,14 @@
     <title>Document</title>
     @include('backend.admin.partials.styles')
 </head>
-
-    @include('backend.admin.partials.sidebar')
+<body>
     
+    <div class="layout-container">
+    @include('backend.admin.partials.sidebar')
+   
     @yield('content')
-
-    @include('backend.admin.partials.scripts')
+    </div>
+   
     @include('backend.admin.partials.notificationmodal')
-
+</body>
 </html>

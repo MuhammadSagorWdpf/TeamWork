@@ -105,7 +105,59 @@
                   <div class="inbox-messages">
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
+                      </div>
+                      <div class="message-container">
+                        <div class="message-container-top">
+                          <div class="title">Ryan Durl</div>
+                          <div class="time">7min</div>
+                        </div>
+                        <div class="text">If the super sale starts</div>
+                      </div>
+                    </div>
+    
+                    <div class="item">
+                      <div class="profile-container">
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
+                      </div>
+                      <div class="message-container">
+                        <div class="message-container-top">
+                          <div class="title">Ryan Durl</div>
+                          <div class="time">7min</div>
+                        </div>
+                        <div class="text">If the super sale starts</div>
+                      </div>
+                    </div>
+    
+                    <div class="item">
+                      <div class="profile-container">
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
+                      </div>
+                      <div class="message-container">
+                        <div class="message-container-top">
+                          <div class="title">Ryan Durl</div>
+                          <div class="time">7min</div>
+                        </div>
+                        <div class="text">If the super sale starts</div>
+                      </div>
+                    </div>
+    
+                    <div class="item">
+                      <div class="profile-container">
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
+                      </div>
+                      <div class="message-container">
+                        <div class="message-container-top">
+                          <div class="title">Ryan Durl</div>
+                          <div class="time">7min</div>
+                        </div>
+                        <div class="text">If the super sale starts</div>
+                      </div>
+                    </div>
+    
+                    <div class="item">
+                      <div class="profile-container">
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -131,7 +183,7 @@
     
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -144,7 +196,7 @@
     
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -157,7 +209,7 @@
     
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -170,7 +222,7 @@
     
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -183,7 +235,7 @@
     
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -196,7 +248,7 @@
     
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -209,7 +261,7 @@
     
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -222,59 +274,7 @@
     
                     <div class="item">
                       <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
-                      </div>
-                      <div class="message-container">
-                        <div class="message-container-top">
-                          <div class="title">Ryan Durl</div>
-                          <div class="time">7min</div>
-                        </div>
-                        <div class="text">If the super sale starts</div>
-                      </div>
-                    </div>
-    
-                    <div class="item">
-                      <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
-                      </div>
-                      <div class="message-container">
-                        <div class="message-container-top">
-                          <div class="title">Ryan Durl</div>
-                          <div class="time">7min</div>
-                        </div>
-                        <div class="text">If the super sale starts</div>
-                      </div>
-                    </div>
-    
-                    <div class="item">
-                      <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
-                      </div>
-                      <div class="message-container">
-                        <div class="message-container-top">
-                          <div class="title">Ryan Durl</div>
-                          <div class="time">7min</div>
-                        </div>
-                        <div class="text">If the super sale starts</div>
-                      </div>
-                    </div>
-    
-                    <div class="item">
-                      <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
-                      </div>
-                      <div class="message-container">
-                        <div class="message-container-top">
-                          <div class="title">Ryan Durl</div>
-                          <div class="time">7min</div>
-                        </div>
-                        <div class="text">If the super sale starts</div>
-                      </div>
-                    </div>
-    
-                    <div class="item">
-                      <div class="profile-container">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="message-container">
                         <div class="message-container-top">
@@ -306,7 +306,7 @@
                   <div class="individual-messages">
                     <div class="single-message opposite-message">
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="right-content">
                         <div class="user-name">John Doe</div>
@@ -395,13 +395,13 @@
                         </div>
                       </div>
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                     </div>
                     
                     <div class="single-message opposite-message">
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="right-content">
                         <div class="user-name">John Doe</div>
@@ -484,12 +484,12 @@
                         </div>
                       </div>
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                     </div>
                     <div class="single-message opposite-message">
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="right-content">
                         <div class="user-name">John Doe</div>
@@ -572,12 +572,12 @@
                         </div>
                       </div>
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                     </div>
                     <div class="single-message opposite-message">
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="right-content">
                         <div class="user-name">John Doe</div>
@@ -666,12 +666,12 @@
                         </div>
                       </div>
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                     </div>
                     <div class="single-message opposite-message">
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                       <div class="right-content">
                         <div class="user-name">John Doe</div>
@@ -760,7 +760,7 @@
                         </div>
                       </div>
                       <div class="user-profile">
-                        <img src="./assets/images/user.png" alt="user" />
+                        <img src="{{asset('admin-assets/images/user.png')}}" alt="user" />
                       </div>
                     </div>
                   </div>
@@ -825,3 +825,17 @@
     </div>
 
 @endsection
+
+
+
+@push('script')
+
+<script src="{{asset('admin-assets/js/jquery-3.7.1.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <script src="{{asset('admin-assets/js/plugins.js')}}"></script>
+    <script src="{{asset('admin-assets/js/main.js')}}"></script>
+    <script src="{{asset('admin-assets/js/calender.js')}}"></script>
+
+
+
+ @endpush

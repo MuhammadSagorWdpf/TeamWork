@@ -1,9 +1,4 @@
-@extends('backend.admin.app')
-@section('content')
-
-      <div class="main-content">
-        <div class="main-content-container">
-           <!-- main container header start -->
+ <!-- main container header start -->
           <div class="main-content-header">
             <svg class="menu-icon" width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
             <div class="section-title">Welcome Dr. Emily 👋</div>
@@ -61,17 +56,4 @@
               </div>
             </div>
           </div>
-          <!-- main container header end -->  
-          <div class="section-title mt-4">Schedule</div>
-          <div class="mt-4 mt-md-5" id="calendar"></div>
-                  
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js"></script>
-    
-    
-    <script src="{{asset('admin-assets/js/full-calender.js')}}"></script>
-   
-@endsection
-
+      
