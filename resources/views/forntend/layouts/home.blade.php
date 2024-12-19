@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
 <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
                        
                        @if (Route::has('login'))
@@ -30,7 +30,7 @@
                            </nav>
                        @endif
                    </header>
-</div>
+</div> -->
 @extends('forntend.layouts.app')
 @section('content')
 

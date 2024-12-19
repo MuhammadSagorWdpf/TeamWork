@@ -167,7 +167,10 @@ font-style: normal;
 font-weight: 400;
 line-height: 24px;
 position: relative;
+
   }
+ 
+
   .header-menu-area ul li a::after{
     content: "";
     position: absolute;

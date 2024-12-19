@@ -24,21 +24,23 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // dashboard route for client
-Route::get('/client/dashboard',[DashboardController::class, 'clientDashboard'])->name('client.dashboard');
-Route::get('/client/appoinment',[DashboardController::class, 'clientAppoinment'])->name('client.appoinment');
-Route::get('/client/doctor',[DashboardController::class, 'clientDoctor'])->name('client.doctor');
-Route::get('/doctor/profile',[DashboardController::class, 'doctorProfile'])->name('doctor.profile');
-Route::get('/setting',[DashboardController::class, 'setting'])->name('setting');
+Route::middleware(['role:client'])->group(function(){
+    Route::get('/client/dashboard',[DashboardController::class, 'clientDashboard'])->name('client.dashboard');
+    Route::get('/client/appoinment',[DashboardController::class, 'clientAppoinment'])->name('client.appoinment');
+    Route::get('/client/doctor',[DashboardController::class, 'clientDoctor'])->name('client.doctor');
+    Route::get('/doctor/profile',[DashboardController::class, 'doctorProfile'])->name('doctor.profile');
+    Route::get('/setting',[DashboardController::class, 'setting'])->name('setting');
+});
 
 
-//Admin Dashboard
-Route::get('/admin-dashboard',[AdminController::class, 'index'])->name('admin-dashboard');
-Route::get('/appointments',[AdminController::class, 'appointments'])->name('appointments');
-Route::get('/doctor-schedul', [AdminController::class, 'schedul'])->name('doctor-schedul');
-Route::get('/invoice', [AdminController::class, 'invoice'])->name('invoice');
-Route::get('/settings',[AdminController::class, 'settings'])->name('settings');
-Route::get('/message',[AdminController::class, 'message'])->name('message');
-
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin-dashboard');
+    Route::get('/appointments',[AdminController::class, 'appointments'])->name('appointments');
+    Route::get('/doctor-schedul', [AdminController::class, 'schedul'])->name('doctor-schedul');
+    Route::get('/invoice', [AdminController::class, 'invoice'])->name('invoice');
+    Route::get('/settings',[AdminController::class, 'settings'])->name('settings');
+    Route::get('/message',[AdminController::class, 'message'])->name('message');
+});
 
 
 //Home section
@@ -48,5 +50,54 @@ Route::get('/services',[HomeController::class, 'services'])->name('services');
 Route::get('/psychologist',[HomeController::class, 'psychologist'])->name('psychologist');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 
+//login-registration
 Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
 Route::get('/sign-up',[HomeController::class, 'signUp'])->name('sign-up');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Route::middleware(['verified', 'role:admin'])->group(function () {
+    Route::get('/admin-dashboard', function () {
+        return view('adminDashboard');
+    })->name('admin-dashboard');
+
+    Route::get('/appointments',[AdminController::class, 'appointments'])->name('appointments');
+Route::get('/doctor-schedul', [AdminController::class, 'schedul'])->name('doctor-schedul');
+Route::get('/invoice', [AdminController::class, 'invoice'])->name('invoice');
+Route::get('/settings',[AdminController::class, 'settings'])->name('settings');
+Route::get('/message',[AdminController::class, 'message'])->name('message');
+}); */
+//Admin Dashboard
+/* Route::get('/admin-dashboard',[AdminController::class, 'index'])->name('admin-dashboard');
+Route::get('/appointments',[AdminController::class, 'appointments'])->name('appointments');
+Route::get('/doctor-schedul', [AdminController::class, 'schedul'])->name('doctor-schedul');
+Route::get('/invoice', [AdminController::class, 'invoice'])->name('invoice');
+Route::get('/settings',[AdminController::class, 'settings'])->name('settings');
+Route::get('/message',[AdminController::class, 'message'])->name('message'); */

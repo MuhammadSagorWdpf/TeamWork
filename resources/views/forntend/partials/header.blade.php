@@ -30,15 +30,23 @@
         <div class="header-menu-area d-flex align-items-center">
           <ul
             class="menu d-flex align-items-center justify-content-between list-unstyled">
-            <li class="text-decoration-none "><a href="{{ url('/') }}">Home</a></li>
-            <li class="text-decoration-none"><a href="{{route('about')}}">About Us</a></li>
-            <li class="text-decoration-none"><a href="{{route('services')}}">Service</a></li>
-            <li class="text-decoration-none"><a href="{{route('psychologist')}}">Our
+            <li class="text-decoration-none {{ request()->is('/') ? 'tm-active-menu' : '' }} "><a href="{{ url('/') }}">Home</a></li>
+            <li class="text-decoration-none {{ request()->routeIs('about') ? 'tm-active-menu' : '' }}"><a href="{{route('about')}}">About Us</a></li>
+            <li class="text-decoration-none {{request()->routeIs('services') ? 'tm-active-menu': ''}}"><a href="{{route('services')}}">Service</a></li>
+            <li class="text-decoration-none {{request()->routeIs('psychologist') ? 'tm-active-menu': ''}}"><a href="{{route('psychologist')}}">Our
                 Psychologist</a></li>
-            <li class="text-decoration-none"><a href="{{route('contact')}}">Appointment</a></li>
-            <li class="text-decoration-none"><a href="{{route('sign-up')}}">Become A Psychologist</a></li>
+                <li class="text-decoration-none {{ request()->routeIs('contact') ? 'tm-active-menu' : '' }}">
+    <a href="{{ route('contact') }}">Appointment</a>
+</li>
+<li class="text-decoration-none {{ request()->routeIs('sign-up') ? 'tm-active-menu' : '' }}">
+    <a href="{{ route('sign-up') }}">Become A Psychologist</a>
+</li>
+
           </ul>
-          <a href="{{url('account-type')}}" class="nav-btn">Get started</a>
+          <!-- <a href="{{url('account-type')}}" class="nav-btn {{ request()->is('account-type*') ? 'tm-menu-item': ''}}">Get started</a> -->
+          <a href="{{ route('account-type') }}" class="nav-btn {{ request()->routeIs('account-type') ? 'tm-menu-item' : '' }}">Get started</a>
+
+
         </div>
       </div>
     </header>
