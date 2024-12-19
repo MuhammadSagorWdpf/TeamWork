@@ -1,4 +1,4 @@
-@extends('forntend.app')
+@extends('forntend.layouts.app')
 @section('content')
 <div>
 <!-- main area starts -->
