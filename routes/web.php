@@ -2,13 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\Admin\AdminController;
+use App\Http\Controllers\Web\Backend\Cms\BannerController;
 use App\Http\Controllers\Web\Frontend\DashboardController;
 use App\Http\Controllers\Web\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('forntend.layouts.home');
-});
+Route::get('/',[BannerController::class, 'getBanner']);
 
 /* Route::get('/dashboard', function () {
     return view('dashboard');
@@ -53,6 +52,8 @@ Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 //login-registration
 Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
 Route::get('/sign-up',[HomeController::class, 'signUp'])->name('sign-up');
+
+/* Route::get('/getBanner',[BannerController::class, 'getBanner']); */
 
 
 

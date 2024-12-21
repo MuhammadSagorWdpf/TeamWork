@@ -11,4 +11,4 @@
     
 
 
-    @stack('scripts')
+   

@@ -1,36 +1,4 @@
-<!-- <div>
-<header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                       
-                       @if (Route::has('login'))
-                           <nav class="-mx-3 flex flex-1 justify-end">
-                               @auth
-                                   <a
-                                       href="{{ url('/dashboard') }}"
-                                       class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                   >
-                                       Dashboard
-                                   </a>
-                               @else
-                                   <a
-                                       href="{{ route('login') }}"
-                                       class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                   >
-                                       Log in
-                                   </a>
 
-                                   @if (Route::has('register'))
-                                       <a
-                                           href="{{ route('register') }}"
-                                           class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                       >
-                                           Register
-                                       </a>
-                                   @endif
-                               @endauth
-                           </nav>
-                       @endif
-                   </header>
-</div> -->
 @extends('forntend.layouts.app')
 @section('content')
 
@@ -41,8 +9,8 @@
       <section class="banner-section-start">
         <div
           class="hero-content-wrapper d-flex flex-column justify-content-center align-items-center">
-          <h1>Therapist Connect</h1>
-          <h2>Find the Right Psychologist for You</h2>
+          <h1>{{$banner->title}}</h1>
+          <h2>{{$banner->sub_title}}</h2>
           <p>Finding the right psychological support can feel overwhelming—many
             people don’t know where to start. It’s common to be referred to
             psychologists with long waiting lists or struggle to find someone
