@@ -65,51 +65,6 @@ body {
   background-color: var(--white);
 }
 
-/* for ratings */
-#full-stars-example-two {
-  .rating-group {
-    display: inline-flex;
-  }
-
-  .rating__icon {
-    pointer-events: none;
-  }
-
-  .rating__input {
-    position: absolute !important;
-    left: -9999px !important;
-  }
-
-  .rating__input--none {
-    display: none;
-  }
-
-  .rating__label {
-    cursor: pointer;
-    padding: 0 0.1em;
-    font-size: 2rem;
-  }
-
-  .rating__icon--star {
-    color: #48484a;
-  }
-
-  .rating__input:checked ~ .rating__label .rating__icon--star {
-    color: #ddd;
-  }
-
-  .rating-group:hover .rating__label .rating__icon--star {
-    color: #48484a;
-  }
-
-  .rating__input:hover ~ .rating__label .rating__icon--star {
-    color: #ddd;
-  }
-}
-#full-stars-example-two {
-  margin-bottom: 20px;
-}
-
 main {
   overflow: hidden;
 }
@@ -127,9 +82,7 @@ main {
   line-height: 132%;
   letter-spacing: -0.32px;
 }
-.header-title{
-  margin-left: 20%;
-}
+
 /* main design start */
 .layout-container {
   display: flex;
@@ -146,12 +99,14 @@ main {
   right: 16px;
 }
 .sidebar {
-  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  
+  min-height: 100vh;
+  max-height: 100vh;
   padding: 24px;
   position: absolute;
   top: 0;
@@ -176,8 +131,7 @@ main {
   flex-grow: 1;
   overflow-y: auto;
 }
-.sidebar-navs .item,
-.logout-nav {
+.sidebar-navs .item, .logout-nav {
   padding: 12px 24px;
   display: flex;
   align-items: center;
@@ -192,8 +146,7 @@ main {
   transition: var(--base-transition);
   cursor: pointer;
 }
-.sidebar-navs .item svg,
-.logout-nav svg {
+.sidebar-navs .item svg, .logout-nav svg {
   margin-top: -3px;
   fill: #87888a;
 }
@@ -204,83 +157,24 @@ main {
   background-color: #e8f1f3;
   color: var(--primary);
 }
-.sidebar-navs .item:hover,
-.logout-nav:hover {
+.sidebar-navs .item:hover, .logout-nav:hover {
   color: var(--primary);
   background-color: #e8f1f3;
 }
-.sidebar-navs .item:hover svg,
-.logout-nav:hover svg {
+.sidebar-navs .item:hover svg, .logout-nav:hover svg {
   fill: #187586;
 }
-.notification-btn {
-  cursor: pointer;
-}
 /* main-content start */
-
-.doctor-reviews {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 400px;
-  overflow-y: auto;
-}
-.doctor-reviews .item {
-  border-bottom: 1px solid #b1b3b6;
-  padding-bottom: 20px;
-}
-.doctor-reviews .review-profile {
-  display: flex;
-  gap: 16px;
-}
-.doctor-reviews .review-profile-img {
-  width: 40px;
-  height: 40px;
-}
-.doctor-reviews .review-profile-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.doctor-reviews .review-title {
-  color: #1e1e1e;
-  font-family: Roboto;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-}
-.doctor-reviews .review-text {
-  color: #4f4f4f;
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.doctor-review-textarea {
-  width: 100%;
-  max-width: 600px;
-  height: 160px;
-  border: 1px solid #b1b3b6;
-  outline: none;
-  border-radius: 8px;
-  padding: 12px 16px;
-}
-
 .main-content {
   display: flex;
   justify-content: space-between;
   width: 100%;
   flex-grow: 1;
-  margin-left: 20%;
-  overflow-x: hidden;
-  padding-right: 5rem;
 }
 .main-content-container {
   width: 100%;
   flex-grow: 1;
+  padding: 16px;
 }
 .main-content-header {
   padding: 0px 0 16px 0;
@@ -569,7 +463,7 @@ main {
   font-weight: 400;
   line-height: 120%;
   padding-bottom: 16px;
-  min-width: 120px;
+  min-width: 80px;
 }
 .data-table table td {
   color: #4f4f4f;
@@ -753,7 +647,6 @@ main {
   font-weight: 400;
   line-height: 150%;
 }
-
 .invoice-details .right {
   display: flex;
   flex-direction: column;
@@ -789,134 +682,9 @@ main {
   letter-spacing: -0.64px;
 }
 
-.dashboard-bottom {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 30px;
-}
-.top-doctors-list {
-  display: flex;
-  flex-direction: column;
-}
-.top-doctors-list .item {
-  gap: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  border-bottom: 1px solid #f8f8f8;
-  padding: 26px 17px;
-}
-/* .dashboard-bottom .item-left {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-} */
-.dashboard-bottom .item-right {
-  gap: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-grow: 1;
-}
-.dashboard-bottom .doctor-ratings {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-.dashboard-bottom .doctor-title {
-  color: #1e1e1e;
-  font-family: Roboto;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.dashboard-bottom .doctor-text {
-  color: #187586;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-}
-.dashboard-bottom .doctor-ratings span {
-  color: #1e1e1e;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-}
-.dashboard-bottom .item-left .number {
-  color: #8f8f8f;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-.dashboard-bottom .doctor-img {
-  width: 90px;
-  height: 90px;
-}
-.dashboard-bottom .doctor-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.dashboard-bottom .more-btn {
-  color: #187586;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-table .view-profile-btn {
-  display: flex;
-  width: 123px;
-  height: 40px;
-  padding: 10px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: transparent;
-  border: 1px solid #187586;
-  color: #187586;
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-}
-.make-appointment-btn {
-  display: flex;
-  width: 183px;
-  height: 40px;
-  padding: 10px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: #187586;
-  border: 1px solid #187586;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  cursor: pointer;
-}
-
-@media screen and (min-width: 450px) {
-}
-@media screen and (min-width: 650px) {
-}
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 450px){}
+@media screen and (min-width: 650px){}
+@media screen and (min-width: 769px){
   .section-title {
     font-size: 24px;
   }
@@ -927,28 +695,9 @@ table .view-profile-btn {
     justify-content: space-between;
     gap: 24px;
   }
-  .dashboard-bottom {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
 }
-@media screen and (min-width: 992px) {
-}
-@media screen and (min-width: 1300px) {
-  .make-appointment-btn {
-    display: flex;
-    width: 223px;
-  }
-  table .view-profile-btn {
-    display: flex;
-    width: 223px;
-  }
-  .dashboard-bottom {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
+@media screen and (min-width: 992px){}
+@media screen and (min-width: 1300px){
   .close-sidebar-icon {
     display: none;
   }
@@ -959,8 +708,7 @@ table .view-profile-btn {
     flex-grow: 1;
     overflow-y: auto;
   }
-  .sidebar-navs .item,
-  .logout-nav {
+  .sidebar-navs .item, .logout-nav {
     padding: 18px 30px;
     display: flex;
     align-items: center;
@@ -982,27 +730,25 @@ table .view-profile-btn {
   .section-title {
     font-size: 28px;
   }
-  .sidebar{
-    position: absolute;
-    width: 360px;
-    height: 100vh;
-    z-index: 99999;
-  }
   .sidebar {
+    min-width: 360px;
+    max-width: 360px;
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
     gap: 56px;
+    min-height: 100vh;
+    max-height: 100vh;
     padding: 24px;
-    position: static;
+    position: sticky;
     top: 0;
     bottom: 0;
   }
-  .main-content-container {
+  .main-content-container { 
     padding: 24px;
-  }
+   }
 }
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1500px){
   .profile-nav-link {
     display: none !important;
   }
@@ -1030,10 +776,4 @@ table .view-profile-btn {
     width: 380px;
   }
 }
-@media screen and (min-width: 1700px) {
-  .dashboard-bottom {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 300px;
-  }
-}
+@media screen and (min-width: 1700px){}

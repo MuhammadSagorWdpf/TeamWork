@@ -8,11 +8,12 @@
     @include('backend.partials.style')
 </head>
 <body>
+    <div class="layout-container">
+        @include('backend.partials.sidebar')
+        @yield('content')
+    </div>
     
-    @include('backend.partials.header')
-    @include('backend.partials.sidebar')
     @include('backend.partials.notification')
-    @yield('content')
     @include('backend.partials.scripts')
 </body>
 </html>

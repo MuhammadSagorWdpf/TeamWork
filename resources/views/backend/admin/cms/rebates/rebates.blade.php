@@ -7,8 +7,8 @@
           @include('backend.admin.partials.header')
         
           <div class="section-title mt-4 d-flex justify-content-between">
-            <h1>Banner</h1>
-            <a href="{{ route('banner.update') }}" class="btn btn-sm btn-primary">Update</a>
+            <h2>Rebates</h2>
+            <a href="{{ route('rebates.update') }}" class="btn btn-sm btn-primary">Update</a>
           </div>
           
           <div class=" appointments-action-container mt-4 mt-md-5 ">

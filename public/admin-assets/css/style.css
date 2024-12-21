@@ -173,6 +173,7 @@ main {
   justify-content: space-between;
   width: 100%;
   flex-grow: 1;
+  /* height: 30vh; */
 }
 .main-content-container {
   width: 100%;

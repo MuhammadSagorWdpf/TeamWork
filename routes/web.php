@@ -56,13 +56,15 @@ Route::get('/sign-up',[HomeController::class, 'signUp'])->name('sign-up');
 //home panner
 Route::get('/banner',[BannerController::class, 'banner'])->name('banner'); 
 Route::get('/banner/update',[BannerController::class, 'bannerUpdate'])->name('banner.update'); 
-
-
-
-
-
-
-
+//services
+Route::get('/services',[BannerController::class, 'services'])->name('services'); 
+Route::get('/services/update',[BannerController::class, 'servicesUpdate'])->name('services.update');
+//psychologists
+Route::get('/psychologists',[BannerController::class, 'psychologists'])->name('psychologists'); 
+Route::get('/psychologists/update',[BannerController::class, 'psychologistsUpdate'])->name('psychologists.update');
+//rebates
+Route::get('/rebates',[BannerController::class, 'rebates'])->name('rebates'); 
+Route::get('/rebates/update',[BannerController::class, 'rebatesUpdate'])->name('rebates.update');
 
 
 
