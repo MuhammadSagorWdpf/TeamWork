@@ -10,8 +10,13 @@ class BannerController extends Controller
 {
     public function getBanner()
     {
-        $banner= CMS::where('section', 'provident' )->first();
+        $banner= CMS::where('section', 'nobis' )->first();
        
        return view('forntend.layouts.home', compact('banner'));
+    }
+
+    public function banner(Request $request)
+    {
+        return view('backend.admin.cms.banner');
     }
 }

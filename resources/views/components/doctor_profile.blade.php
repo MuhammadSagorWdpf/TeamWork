@@ -8,7 +8,7 @@
       <div class="doctor-profile-container">
         <div class="profile-top">
           <div class="img">
-            <img src="./assets/images/doctor.png" alt="" />
+            <img src="{{ asset('assets/images/doctor.png') }}" alt="" />
           </div>
           <div class="profile-title mt-4">Dr. Emily Parker Woner</div>
           <div class="text mt-2">Clinical Psychologist</div>
@@ -39,7 +39,7 @@
           <div class="item">
             <div class="review-profile">
               <div class="review-profile-img">
-                <img src="./assets/images/user.png" alt="">
+                <img src="{{ asset('assets/images/user.png') }}" alt="">
               </div>
               <div class="review-profile-info">
                 <div class="review-title">Linda Freaya</div>
@@ -60,7 +60,7 @@
           <div class="item">
             <div class="review-profile">
               <div class="review-profile-img">
-                <img src="./assets/images/user.png" alt="">
+                <img src="{{ asset('assets/images/user.png') }}" alt="">
               </div>
               <div class="review-profile-info">
                 <div class="review-title">Linda Freaya</div>
@@ -81,7 +81,7 @@
           <div class="item">
             <div class="review-profile">
               <div class="review-profile-img">
-                <img src="./assets/images/user.png" alt="">
+                <img src="{{ asset('assets/images/user.png') }}" alt="">
               </div>
               <div class="review-profile-info">
                 <div class="review-title">Linda Freaya</div>
@@ -102,7 +102,7 @@
           <div class="item">
             <div class="review-profile">
               <div class="review-profile-img">
-                <img src="./assets/images/user.png" alt="">
+                <img src="{{ asset('assets/images/user.png') }}" alt="">
               </div>
               <div class="review-profile-info">
                 <div class="review-title">Linda Freaya</div>
@@ -123,7 +123,7 @@
           <div class="item">
             <div class="review-profile">
               <div class="review-profile-img">
-                <img src="./assets/images/user.png" alt="">
+                <img src="{{ asset('assets/images/user.png') }}" alt="">
               </div>
               <div class="review-profile-info">
                 <div class="review-title">Linda Freaya</div>
@@ -144,7 +144,7 @@
           <div class="item">
             <div class="review-profile">
               <div class="review-profile-img">
-                <img src="./assets/images/user.png" alt="">
+                <img src="{{ asset('assets/images/user.png') }}" alt="">
               </div>
               <div class="review-profile-info">
                 <div class="review-title">Linda Freaya</div>
@@ -165,7 +165,7 @@
           <div class="item">
             <div class="review-profile">
               <div class="review-profile-img">
-                <img src="./assets/images/user.png" alt="">
+                <img src="{{ asset('assets/images/user.png') }}" alt="">
               </div>
               <div class="review-profile-info">
                 <div class="review-title">Linda Freaya</div>
