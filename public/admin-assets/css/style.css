@@ -178,7 +178,7 @@ main {
   width: 100%;
   flex-grow: 1;
   padding: 16px;
-  margin-left: 20%;
+  
   
  
 }
@@ -752,6 +752,7 @@ main {
   }
   .main-content-container { 
     padding: 24px;
+    
    }
 }
 @media screen and (min-width: 1500px){

@@ -704,9 +704,13 @@
       </div>
   
 </div>
-@endsection
 
-<script>
+
+<script src="{{asset('admin-assets/js/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{asset('admin-assets/js/plugins.js')}}"></script>
+    <script src="{{asset('admin-assets/js/main.js')}}"></script>
+
+    <script>
       var options = {
         series: [45, 35, 20], // Values for Excellent, Good, and Poor
         chart: {
@@ -736,7 +740,7 @@
       chart.render();
     </script>
 
-<script>
+    <script>
       // Sample data for Visitors per Month
       var visitorData = {
         months: [
@@ -809,4 +813,8 @@
       var chart = new ApexCharts(document.querySelector("#chart"), options);
       chart.render();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+@endsection
+
+@push('scripts')
+
+ @endpush

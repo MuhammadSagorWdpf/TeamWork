@@ -143,4 +143,51 @@
         
       </div>
     </div
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/plugins.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('inputGroupFile01');
+    const previewImage = document.getElementById('previewImage');
+
+    if (fileInput && previewImage) {
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+});
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Initialize Flatpickr on the input element
+    const dateInput = document.getElementById('date-input');
+    const flatpickrInstance = flatpickr(dateInput, {
+      dateFormat: "d/m/y",
+      minDate: "today" // Disable past dates
+    });
+
+    // Add event listener to open Flatpickr on container click
+    document.querySelector('.date-picker-container').addEventListener('click', function() {
+      flatpickrInstance.open();
+    });
+  });
+    </script>
 @endsection
+
+@push('script')
+
+ @endpush
