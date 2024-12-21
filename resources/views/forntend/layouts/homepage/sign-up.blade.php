@@ -236,4 +236,34 @@
 
         </main>
 </div>
+
+<!-- ==== All Js Links ==== -->
+
+<script>
+const nextButtons = document.querySelectorAll(".next");
+const prevButtons = document.querySelectorAll(".previous");
+const fieldsets = document.querySelectorAll("fieldset");
+const progressbarItems = document.querySelectorAll("#progressbar li");
+
+let currentStep = 0;
+
+nextButtons.forEach((btn, index) => {
+btn.addEventListener("click", () => {
+fieldsets[currentStep].style.display = "none";
+currentStep++;
+fieldsets[currentStep].style.display = "block";
+progressbarItems[currentStep].classList.add("active");
+});
+});
+
+prevButtons.forEach((btn, index) => {
+btn.addEventListener("click", () => {
+fieldsets[currentStep].style.display = "none";
+progressbarItems[currentStep].classList.remove("active");
+currentStep--;
+fieldsets[currentStep].style.display = "block";
+});
+});
+
+</script>
 @endsection

@@ -45,11 +45,11 @@ Route::middleware(['role:admin'])->group(function () {
 
 Route::middleware(['role:doctor'])->group(function () {
     Route::get('/doctor', [DoctorController::class, 'doctorDashboard'])->name('doctor');
-    /* Route::get('/appointments',[DoctorController::class, 'appointments'])->name('appointments');
+    Route::get('/appointments',[DoctorController::class, 'appointments'])->name('appointments');
     Route::get('/doctor-schedul', [DoctorController::class, 'schedul'])->name('doctor-schedul');
     Route::get('/invoice', [DoctorController::class, 'invoice'])->name('invoice');
     Route::get('/settings',[DoctorController::class, 'settings'])->name('settings');
-    Route::get('/message',[DoctorController::class, 'message'])->name('message'); */
+    Route::get('/message',[DoctorController::class, 'message'])->name('message');
 });
 
 
@@ -67,7 +67,9 @@ Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
 Route::get('/sign-up',[HomeController::class, 'signUp'])->name('sign-up');
 
-/* Route::get('/getBanner',[BannerController::class, 'getBanner']); */
+//home panner
+Route::get('/banner',[BannerController::class, 'banner'])->name('banner'); 
+Route::get('/banner/update',[BannerController::class, 'bannerUpdate'])->name('banner.update'); 
 
 
 

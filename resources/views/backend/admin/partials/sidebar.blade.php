@@ -82,6 +82,8 @@
             <span> Messages </span>
           </a>
           <a href="{{route('settings')}}" class="item">
+          
+          <a href="{{route('banner')}}" class="item">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -102,7 +104,7 @@
                 fill=""
               />
             </svg>
-            <span>Settings</span>
+            <span>Banner</span>
           </a>
           
         </div>

@@ -14,4 +14,14 @@ class BannerController extends Controller
        
        return view('forntend.layouts.home', compact('banner'));
     }
+
+    public function banner(Request $request)
+    {
+        return view('backend.admin.cms.banner');
+    }
+
+    public function bannerUpdate()
+    {
+        return view('backend.admin.cms.banner-update');
+    }
 }

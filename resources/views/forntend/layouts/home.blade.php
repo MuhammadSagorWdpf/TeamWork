@@ -13,6 +13,10 @@
           <h4>{{$banner->sub_title}}</h4>
           <p>{{$banner->description}}</p>
          
+        
+       
+          <a href="#" class="hero-banner-btn">{{ $banner->btn_text }}</a>
+        </div>
       </section>
       <!-- banner area ends -->
 

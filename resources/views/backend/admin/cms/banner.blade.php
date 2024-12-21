@@ -1,11 +1,15 @@
 @extends('backend.admin.app')
 @section('content')
   <!-- sidebar end -->
-      <!-- main content start -->
-      <div class="main-content">
-        <div class="main-content-container">
+  <!-- main content start -->
+  <div class="main-content">
+    <div class="main-content-container">
+          @include('backend.admin.partials.header')
         
-          <div class="section-title mt-4">Invoices</div>
+          <div class="section-title mt-4 d-flex justify-content-between">
+            <h1>Banner</h1>
+            <a href="{{ route('banner.update') }}" class="btn btn-sm btn-primary">Update</a>
+          </div>
           
           <div class=" appointments-action-container mt-4 mt-md-5 ">
               <div class="search-bar">
@@ -352,3 +356,4 @@
       </div>
     </div>
 @endsection
+
