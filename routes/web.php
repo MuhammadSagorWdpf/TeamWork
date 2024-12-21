@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\Admin\AdminController;
 use App\Http\Controllers\Web\Backend\Cms\BannerController;
+use App\Http\Controllers\Web\Doctor\DoctorController;
+//use App\Http\Controllers\Web\Doctor\DoctorController;
 use App\Http\Controllers\Web\Frontend\DashboardController;
 use App\Http\Controllers\Web\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +42,18 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/settings',[AdminController::class, 'settings'])->name('settings');
     Route::get('/message',[AdminController::class, 'message'])->name('message');
 });
+
+Route::middleware(['role:doctor'])->group(function () {
+    Route::get('/doctor', [DoctorController::class, 'doctorDashboard'])->name('doctor');
+    /* Route::get('/appointments',[DoctorController::class, 'appointments'])->name('appointments');
+    Route::get('/doctor-schedul', [DoctorController::class, 'schedul'])->name('doctor-schedul');
+    Route::get('/invoice', [DoctorController::class, 'invoice'])->name('invoice');
+    Route::get('/settings',[DoctorController::class, 'settings'])->name('settings');
+    Route::get('/message',[DoctorController::class, 'message'])->name('message'); */
+});
+
+
+
 
 
 //Home section

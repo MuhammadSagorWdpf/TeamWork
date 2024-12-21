@@ -9,14 +9,10 @@
       <section class="banner-section-start">
         <div
           class="hero-content-wrapper d-flex flex-column justify-content-center align-items-center">
-          <h1>{{$banner->title}}</h1>
-          <h2>{{$banner->sub_title}}</h2>
-          <p>Finding the right psychological support can feel overwhelming—many
-            people don’t know where to start. It’s common to be referred to
-            psychologists with long waiting lists or struggle to find someone
-            who truly fits your needs Read More.</p>
-          <a href="#" class="hero-banner-btn">Find a Psychologist</a>
-        </div>
+          <h2>{{$banner->title}}</h2>
+          <h4>{{$banner->sub_title}}</h4>
+          <p>{{$banner->description}}</p>
+         
       </section>
       <!-- banner area ends -->
 

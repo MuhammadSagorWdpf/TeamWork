@@ -376,6 +376,7 @@ main {
   flex-direction: column;
   padding-top: 0px;
   gap: 30px;
+  width: 40%;
 }
 .apexcharts-legend-text {
   margin-left: -10px !important;
