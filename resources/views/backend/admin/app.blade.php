@@ -16,5 +16,6 @@
     
     @include('backend.admin.partials.notificationmodal')
     @include('backend.admin.partials.scripts')
+    @stack('scripts')
 </body>
 </html>
