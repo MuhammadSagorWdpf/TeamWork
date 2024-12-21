@@ -53,7 +53,7 @@ Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
 Route::get('/sign-up',[HomeController::class, 'signUp'])->name('sign-up');
 
-/* Route::get('/getBanner',[BannerController::class, 'getBanner']); */
+Route::get('/banner',[BannerController::class, 'banner'])->name('banner'); 
 
 
 
