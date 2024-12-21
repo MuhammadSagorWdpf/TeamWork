@@ -19,4 +19,9 @@ class BannerController extends Controller
     {
         return view('backend.admin.cms.banner');
     }
+
+    public function bannerUpdate()
+    {
+        return view('backend.admin.cms.banner-update');
+    }
 }

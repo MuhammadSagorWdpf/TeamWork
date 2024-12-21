@@ -67,7 +67,7 @@ max-width: 945px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    justify-content: center;
+    /* justify-content: center; */
     height: 100%;
     margin: auto 0;
   }
