@@ -2,8 +2,16 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\Admin\AdminController;
+use App\Http\Controllers\Web\Backend\Cms\AboutController;
+use App\Http\Controllers\Web\Backend\Cms\ArticleController;
 use App\Http\Controllers\Web\Backend\Cms\BannerController;
+use App\Http\Controllers\Web\Backend\Cms\FaqsController;
+use App\Http\Controllers\Web\Backend\Cms\PsychologistController;
+use App\Http\Controllers\Web\Backend\Cms\RebateController;
+use App\Http\Controllers\Web\Backend\Cms\ServiceController;
+use App\Http\Controllers\Web\Doctor\DoctorController;
 use App\Http\Controllers\Web\Frontend\DashboardController;
+use App\Http\Controllers\Web\Frontend\DoctorSignupController;
 use App\Http\Controllers\Web\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,10 +49,13 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/message',[AdminController::class, 'message'])->name('message');
 });
 
+// doctor dashboard route
+Route::get('/doctor-dashboard', [DoctorController::class, 'index'])->name('doctor.dashboard');
+
 
 //Home section
 Route::get('/account-type',[HomeController::class, 'accountType'])->name('account-type');
-Route::get('/about',[HomeController::class, 'about'])->name('about');
+Route::get('/about-us',[HomeController::class, 'about'])->name('about_us');
 Route::get('/services',[HomeController::class, 'services'])->name('services');
 Route::get('/psychologist',[HomeController::class, 'psychologist'])->name('psychologist');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
@@ -53,29 +64,77 @@ Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
 Route::get('/sign-up',[HomeController::class, 'signUp'])->name('sign-up');
 
-//home panner
+//home banner
 Route::get('/banner',[BannerController::class, 'banner'])->name('banner'); 
-Route::get('/banner/update',[BannerController::class, 'bannerUpdate'])->name('banner.update'); 
+// Route::get('/banner/create',[BannerController::class, 'bannerCreate'])->name('banner.create'); 
+// Route::post('/banner/store/{id}',[BannerController::class, 'bannerStore'])->name('banner.store'); 
+Route::get('/banner/edit/{id}',[BannerController::class, 'bannerEdit'])->name('banner.edit'); 
+Route::put('/banner/update/{id}',[BannerController::class, 'bannerUpdate'])->name('banner.update'); 
+//Home services
+Route::get('/admin/services',[BannerController::class, 'services'])->name('admin.services'); 
+Route::get('/admin/services/create',[BannerController::class, 'servicesCreate'])->name('admin.services.create');
+Route::get('/service/edit/{id}',[ServiceController::class, 'serviceEdit'])->name('service.edit'); 
+Route::post('/services/store',[ServiceController::class, 'servicesStore'])->name('services.store');
+Route::put('/services/update/{id}',[ServiceController::class, 'servicesUpdate'])->name('services.update'); 
+
 //services
-Route::get('/services',[BannerController::class, 'services'])->name('services'); 
-Route::get('/services/update',[BannerController::class, 'servicesUpdate'])->name('services.update');
+Route::get('/home/services',[ServiceController::class, 'homeServices'])->name('home.services'); 
+Route::get('/home/services/create',[ServiceController::class, 'homeServicesCreate'])->name('home.services.create');
+Route::get('/home/service/edit/{id}',[ServiceController::class, 'homeServiceEdit'])->name('home.service.edit'); 
+Route::post('/home/services/store',[ServiceController::class, 'homeServicesStore'])->name('home.services.store');
+Route::put('/home/services/update/{id}',[ServiceController::class, 'homeServicesUpdate'])->name('home.services.update'); 
+
+
 //psychologists
-Route::get('/psychologists',[BannerController::class, 'psychologists'])->name('psychologists'); 
-Route::get('/psychologists/update',[BannerController::class, 'psychologistsUpdate'])->name('psychologists.update');
+Route::get('/psychologists',[PsychologistController::class, 'psychologists'])->name('psychologists'); 
+Route::get('/psychologists/create',[PsychologistController::class, 'psychologistsCreate'])->name('psychologists.create');
+Route::post('/psychologists/store',[PsychologistController::class, 'psychologistsStore'])->name('psychologists.store');
+Route::get('/psychologists/edit/{id}',[PsychologistController::class, 'psychologistsEdit'])->name('psychologists.edit');
+Route::put('/psychologists/update/{id}',[PsychologistController::class, 'psychologistsUpdate'])->name('psychologists.update');
+
+Route::get('/psychologists/status/{id}',[PsychologistController::class, 'psychologistsStatus'])->name('psychologists.status');
+
 //rebates
-Route::get('/rebates',[BannerController::class, 'rebates'])->name('rebates'); 
-Route::get('/rebates/update',[BannerController::class, 'rebatesUpdate'])->name('rebates.update');
+Route::get('/rebates',[RebateController::class, 'rebates'])->name('rebates'); 
+Route::get('/rebates/create',[RebateController::class, 'rebatesCreate'])->name('rebates.create');
+Route::post('/rebates/store',[RebateController::class, 'rebatesStore'])->name('rebates.store'); 
+Route::get('/rebates/edit/{id}',[RebateController::class, 'rebatesEdit'])->name('rebates.edit'); 
+Route::put('/rebates/edit/{id}',[RebateController::class, 'rebatesUpdate'])->name('rebates.update'); 
+//article
+Route::get('/articles',[BannerController::class, 'article'])->name('articles'); 
+Route::get('/article/create',[BannerController::class, 'articleCreate'])->name('article.create');
+Route::get('/article/edit/{id}',[BannerController::class, 'articleEdit'])->name('article.edit');
+
+Route::post('/article/store',[ArticleController::class, 'articleStore'])->name('article.store');
+Route::put('/article/update/{id}',[ArticleController::class, 'articleUpdate'])->name('article.update');
+Route::get('/article/delete/{id}',[ArticleController::class, 'articleDelete'])->name('article.delete');
+//faqs
+Route::get('/faqs',[FaqsController::class, 'faqs'])->name('faqs'); 
+Route::get('/faqs/create',[FaqsController::class, 'faqsCreate'])->name('faqs.create');
+Route::post('/faqs/store',[FaqsController::class, 'faqsStore'])->name('faqs.store');
+
+Route::get('/faq/edit/{id}',[FaqsController::class, 'faqEdit'])->name('faq.edit');
+Route::put('/faqs/update/{id}',[FaqsController::class, 'faqsUpdate'])->name('faqs.update');
+Route::get('/faq/delete/{id}',[FaqsController::class, 'faqDelete'])->name('faq.delete');
+//about
+Route::get('/abouts',[AboutController::class, 'abouts'])->name('abouts'); 
+Route::get('/abouts/create',[AboutController::class, 'aboutsCreate'])->name('abouts.create');
+Route::post('/abouts/store',[AboutController::class, 'aboutsStore'])->name(name: 'abouts.store');
+Route::get('/abouts/edit/{id}',[AboutController::class, 'aboutsEdit'])->name(name: 'abouts.edit');
+Route::put('/abouts/update/{id}',[AboutController::class, 'aboutsUpdate'])->name(name: 'abouts.update');
+
+// store doctor
+Route::post('/doctor/store', [DoctorSignupController::class, 'storeDoctor'])->name('doctor.store');
+Route::get('/slots', [DoctorController::class, 'slots'])->name('slots');
+Route::get('/slots/create', [DoctorController::class, 'slotsCreate'])->name('slots.create');
+Route::post('/slots/store', [DoctorController::class, 'slotsStore'])->name('slots.store');
+Route::put('/slots/update/{id}', [DoctorController::class, 'slotsUpdate'])->name('slots.update');
+Route::get('/slots/edit/{id}', [DoctorController::class, 'slotsEdit'])->name('slot.edit');
+Route::get('/slots/delete/{id}', [DoctorController::class, 'slotsDelete'])->name('slot.delete');
 
 
-
-
-
-
-
-
-
-
-
+// doctor details
+Route::get('/doctor/detail/{id}', [DoctorController::class, 'doctorDetail'])->name('doctor.detail');
 
 
 

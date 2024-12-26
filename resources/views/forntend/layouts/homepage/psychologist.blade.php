@@ -30,102 +30,20 @@
           </div>
 
           <div class="expert-card-wrapper">
+            @foreach ($psychologistData as $psychologist)
             <div class="expert-card-item">
               <div class="expert-card-img-area">
-                <img src="./assets/images/expert-1.png" alt srcset>
+                <img src="{{ asset('doctor/profile/'.$psychologist->profile_image) }}" alt srcset>
               </div>
               <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
+                <h5>{{ $psychologist->first_name }}</h5>
+                <p>Specialty - <span>{{ $psychologist->expertise_area }}</span></p>
+                <p>Primary Care - <span>{{ $psychologist->experience }}</span></p>
+                <a class="expert-card-item-link" href="{{ route('doctor.detail', $psychologist->id) }}">View Doctor Profile
                 </a>
               </div>
             </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-2.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-3.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-4.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-1.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-2.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-3.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-4.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
 

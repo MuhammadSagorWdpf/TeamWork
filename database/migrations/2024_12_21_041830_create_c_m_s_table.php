@@ -27,6 +27,26 @@ return new class extends Migration
             $table->string('answer')->nullable();
             $table->string('btn_text')->nullable();
             $table->string('status')->nullable()->default(0);
+            $table->string('card_title_1')->nullable();
+            $table->string('card_title_2')->nullable();
+            $table->string('card_title_3')->nullable();
+            $table->string('card_title_4')->nullable();
+            $table->string('card_title_5')->nullable();
+            $table->string('card_title_6')->nullable();
+            $table->string('card_title_7')->nullable();
+            $table->string('card_title_8')->nullable();
+            $table->string('card_title_9')->nullable();
+            $table->string('card_title_10')->nullable();
+            $table->text('card_desc_1')->nullable();
+            $table->text('card_desc_2')->nullable();
+            $table->text('card_desc_3')->nullable();
+            $table->text('card_desc_4')->nullable();
+            $table->text('card_desc_5')->nullable();
+            $table->text('card_desc_6')->nullable();
+            $table->text('card_desc_7')->nullable();
+            $table->text('card_desc_8')->nullable();
+            $table->text('card_desc_9')->nullable();
+            $table->text('card_desc_10')->nullable();
             $table->timestamps();
         });
     }

@@ -173,7 +173,7 @@ main {
   justify-content: space-between;
   width: 100%;
   flex-grow: 1;
-  /* height: 30vh; */
+  height: 10vh;
 }
 .main-content-container {
   width: 100%;
@@ -785,3 +785,39 @@ main {
   }
 }
 @media screen and (min-width: 1700px){}
+
+
+.fa-pen-to-square{
+  color: green;
+  font-size: 1.5rem;
+}
+
+.fa-trash{
+  color: red;
+  font-size: 1.5rem;
+}
+
+.dropdown-menu {
+  max-height: 200px; /* Set max height for scroll */
+  overflow-y: auto;
+}
+
+.search-input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.accordion-item{
+  background: #bb15ad;
+}
+
+.accordion-btn{
+  box-shadow: none !important;
+  background: #36b37e;
+  color: #fff;
+  width: 100%;
+  border: none;
+}
+

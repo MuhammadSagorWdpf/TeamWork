@@ -9,7 +9,7 @@
       <section class="banner-section-start">
         <div
           class="hero-content-wrapper d-flex flex-column justify-content-center align-items-center">
-          <h1>{{$banner->title}}</h1>
+          <h4>{{$banner->title}}</h4>
           <h2>{{$banner->sub_title}}</h2>
           <p>{{ $banner->description }}</p>
           <a href="#" class="hero-banner-btn">{{ $banner->btn_text }}</a>
@@ -23,8 +23,8 @@
           <div class="common-heading-para-link-wrapper">
             <div class="expert-heading-para">
               <h4 class="expert-sub-heading">Service</h4>
-              <h3 class="tm-common-heading">Consulting and Therapy Services</h3>
-              <p>We are passionate about providing exceptional mental health care in a compassionate and supportive environment.</p>
+              <h3 class="tm-common-heading">{{ $services->title }}</h3>
+              <p>{{ $services->short_description }}</p>
             </div>
             <a class="tm-common-link" href="services.html">Read More <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
@@ -37,21 +37,21 @@
           <div class="tm-row w-100">
             <div class="tm-col tm-col-therapy">
               <div class="therapy-section">
-                <h2 class="therapy-section-heading">Individual Therapy</h2>
+                <h2 class="therapy-section-heading">{{ $services->card_title_1 }}</h2>
                 <p>
-                    Individual therapy, also known as talk therapy or psychotherapy, is a one-on-one process where individuals work with a trained mental health professional to explore their thoughts, feelings, and behaviors. This form of therapy provides a safe, confidential environment for clients to express themselves and address various personal challenges, ranging from anxiety and depression to relationship issues and life transitions.
+                    {{ $services->card_desc_1 }}
                 </p>
                 <ul>
-                    <li> <h3 class="therapy-section-sub-heading">The Benefits of Individual Therapy</h3></li>
+                    <li> <h3 class="therapy-section-sub-heading">{{ $services->card_title_2 }}</h3></li>
                 </ul>
-                    <p>Personalized Attention: In individual therapy, the focus is entirely on the client. The therapist tailors the approach to meet the unique needs and goals of the individual, facilitating a deeper understanding of personal issues.</p>
-                    <p>Safe Space for Self-Exploration: Clients can openly discuss their feelings, thoughts, and experiences without fear of judgment. This safe space fosters self-exploration and self-acceptance, allowing individuals to uncover and process complex emotions.</p>
+                    <p>{{ $services->card_desc_2 }}</p>
+                    {{-- <p>Safe Space for Self-Exploration: Clients can openly discuss their feelings, thoughts, and experiences without fear of judgment. This safe space fosters self-exploration and self-acceptance, allowing individuals to uncover and process complex emotions.</p> --}}
             </div>
             
             </div>
             <div class="tm-col tm-col-img">
               <div class="tm-blog-img-area">
-                <img src="./assets/images/blog-img.jpg" alt="" srcset="">
+                <img src="{{ asset('service/'.$services->images)}}" alt="" srcset="">
               </div>
             </div>
           </div>
@@ -233,30 +233,29 @@
           <div class="tm-row-3">
             <div class="tm-col">
               <div class="tm-rebates-image-area">
-                <img src="./assets/images/rebates.jpg" alt="Rebates Image" srcset="">
+                <img src="{{ asset('rebate/'.$rebates->images)}}" alt="Rebates Image" srcset="">
               </div>
             </div>
             <div class="tm-col">
               <div class="expert-heading-para">
                 <h4 class="expert-sub-heading">Rebates</h4>
-                <h3 class="tm-common-heading">Claiming Medicare Rebates</h3>
+                <h3 class="tm-common-heading">{{ $rebates->title }}</h3>
                 <p>
-                  Medicare, Australia's publicly funded health care system, provides significant support for eligible individuals, covering a range of medical services and treatments. One of the benefits of Medicare is the ability to claim rebates for certain out-of-pocket medical expenses, allowing patients to reduce their healthcare costs. Understanding how to navigate the rebate process can empower individuals to take full advantage of their Medicare benefits.
-
+                  {{ $rebates->short_description }}
                 </p> 
               </div>
               <div class="rebates-mini-card-wrapper">
                 <div class="rebates-mini-card-item">
-                  <h3>Receiving Medical Services</h3>
-                  <p>After receiving a medical service, your healthcare provider will usually provide you with an invoice or receipt detailing the services rendered and their costs.</p>
+                  <h3>{{ $rebates->card_title_1 }}</h3>
+                  <p>{{ $rebates->card_desc_1 }}</p>
                 </div>
                 <div class="rebates-mini-card-item">
-                  <h3>Submitting a Claim</h3>
-                  <p>Claim Medicare rebates via Online,In-Person,By Mail</p>
+                  <h3>{{ $rebates->card_title_2 }}</h3>
+                  <p>{{ $rebates->card_desc_2 }}</p>
                 </div>
                 <div class="rebates-mini-card-item">
-                  <h3>Processing Times</h3>
-                  <p>Claims submitted online are typically processed faster than those submitted by mail. Most online claims are processed within a few days, while mail claims may take up to several weeks.</p>
+                  <h3>{{ $rebates->card_title_3 }}</h3>
+                  <p>{{ $rebates->card_desc_3 }}</p>
                 </div>
               </div>
             </div>
@@ -340,10 +339,11 @@
           <div class="tm-accordion-content-wrapper">
             <h2 class="faq-title tm-common-heading">Frequently Asked Questions?</h2>
             <div class="accordion tm-accordion" id="faqAccordion">
+              @foreach ($faqs as $faq)
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    What Can I Expect During My First Therapy Session?
+                    {{ $faq->question }}
                     <!-- Custom SVG icons for plus and minus -->
                     <span class="icon-plus">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -360,101 +360,12 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                   <div class="accordion-body">
-                    In the first session, your therapist will get to know you, discuss your goals, and develop a personalized plan to address your needs. It's a welcoming space where you can share at your own pace.
+                    {{ $faq->answer }}
                   </div>
                 </div>
               </div>
-              <!-- Repeat for other accordion items -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    How Long Does Each Therapy Session Last?
-                    <span class="icon-plus">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0C0C0C" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                    </span>
-                    <span class="icon-minus">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0C0C0C" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                    </span>
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body">
-                    Each therapy session typically lasts between 50 to 60 minutes, providing adequate time to discuss issues and work on progress.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    How Do I Know If I Need Therapy or Consulting?
-                    <span class="icon-plus">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0C0C0C" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                    </span>
-                    <span class="icon-minus">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0C0C0C" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                    </span>
-                  </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body">
-                    Therapy is beneficial for addressing mental health concerns, while consulting focuses on guidance and advice in specific areas.
-                  </div>
-                </div>
-              </div>
+              @endforeach
               
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    Are Therapy Sessions Confidential?
-                    <span class="icon-plus">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0C0C0C" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                    </span>
-                    <span class="icon-minus">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0C0C0C" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                    </span>
-                  </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body">
-                    Yes, therapy sessions are confidential, with exceptions related to legal and safety obligations.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFive">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    How Often Should I Attend Sessions?
-                    <span class="icon-plus">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0C0C0C" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                    </span>
-                    <span class="icon-minus">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0C0C0C" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                    </span>
-                  </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body">
-                    The frequency of sessions is based on your needs and goals. Your therapist will help you decide on the best schedule.
-                  </div>
-                </div>
-              </div>
               
             </div>
           </div>

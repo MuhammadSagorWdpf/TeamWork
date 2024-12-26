@@ -1,7 +1,7 @@
 <!-- mobile header -->
 <div
       class="mobile-header d-flex align-items-center justify-content-between p-4 d-none">
-      <a href="./index.html" class="mobile-logo">
+      <a href="{{ url('/') }}" class="mobile-logo">
         <img src="./assets/images/logo.png" alt="logo">
       </a>
       <div class="mobile-menu">
@@ -17,7 +17,7 @@
     <!-- header area starts -->
     <header>
       <div class="header-main d-flex justify-content-between container">
-        <a href="./index.html" class="logo-area">
+        <a href="{{ url('/') }}" class="logo-area">
           <img src="{{asset('assets/images/logo.png')}}" alt="Logo" srcset>
           <span class="close-sidebar-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
@@ -31,13 +31,13 @@
           <ul
             class="menu d-flex align-items-center justify-content-between list-unstyled">
             <li class="text-decoration-none {{ request()->is('/') ? 'tm-active-menu' : '' }} "><a href="{{ url('/') }}">Home</a></li>
-            <li class="text-decoration-none {{ request()->routeIs('about') ? 'tm-active-menu' : '' }}"><a href="{{route('about')}}">About Us</a></li>
+            <li class="text-decoration-none {{ request()->routeIs('about_us') ? 'tm-active-menu' : '' }}"><a href="{{route('about_us')}}">About Us</a></li>
             <li class="text-decoration-none {{request()->routeIs('services') ? 'tm-active-menu': ''}}"><a href="{{route('services')}}">Service</a></li>
             <li class="text-decoration-none {{request()->routeIs('psychologist') ? 'tm-active-menu': ''}}"><a href="{{route('psychologist')}}">Our
                 Psychologist</a></li>
-                <li class="text-decoration-none {{ request()->routeIs('contact') ? 'tm-active-menu' : '' }}">
+                {{-- <li class="text-decoration-none {{ request()->routeIs('contact') ? 'tm-active-menu' : '' }}">
     <a href="{{ route('contact') }}">Appointment</a>
-</li>
+</li> --}}
 <li class="text-decoration-none {{ request()->routeIs('sign-up') ? 'tm-active-menu' : '' }}">
     <a href="{{ route('sign-up') }}">Become A Psychologist</a>
 </li>

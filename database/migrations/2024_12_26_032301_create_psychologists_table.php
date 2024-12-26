@@ -11,8 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('doctor_professional_infos', function (Blueprint $table) {
+        Schema::create('psychologists', function (Blueprint $table) {
             $table->id();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->date('dob');
+            $table->enum('gender', ['male', 'female','other']);
+            $table->string('phone_number');
+            $table->string('language');
+            $table->string('email');
+            $table->string('password');
             $table->string('qualification');
             $table->string('registration_number');
             $table->string('practice_name');
@@ -22,9 +30,11 @@ return new class extends Migration
             $table->time('session_length');
             $table->string('session_fee');
             $table->string('medicare_amount');
-            $table->string('expert');
-            $table->string('certificate');
+            $table->string('expertise_area');
             $table->string('certificate_image');
+            $table->longText('description');
+            $table->string('profile_image');
+            $table->string('experience');
             $table->timestamps();
         });
     }
@@ -34,6 +44,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('doctor_professional_infos');
+        Schema::dropIfExists('psychologists');
     }
 };

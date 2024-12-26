@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CMS;
+use App\Models\Psychologist;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,7 +23,9 @@ class HomeController extends Controller
     }
     public function psychologist()
     {
-        return view('forntend.layouts.homepage.psychologist');
+        $psychologistData = Psychologist::all();
+        $psychologist = CMS::where('page', 'home')->where('section', 'psychologists')->first();
+        return view('forntend.layouts.homepage.psychologist', compact('psychologist','psychologistData'));
     }
     public function contact()
     {

@@ -19,7 +19,7 @@
                     <div class="tm-doctor-details-row">
                         <div class="tm-col doctor-details-img-col">
                             <tm class="doctor-details-img-area">
-                                <img src="./assets/images/expert-4.png" alt
+                                <img src="{{ asset('doctor/profile/'.$doctorDetail->profile_image) }}" alt
                                     srcset>
                             </tm>
                         </div>
@@ -27,44 +27,28 @@
                             <div class="tm-doctor-details">
                                 <p><span class="doctor-details-span-1">Name
                                         :</span> <span
-                                        class="doctor-details-span-2">Dr. Emily
-                                        Parker Woner</span></p>
+                                        class="doctor-details-span-2">{{ $doctorDetail->first_name }}</span></p>
                                 <p><span class="doctor-details-span-1">Primary
                                         Care :</span> <span
-                                        class="doctor-details-span-2">20 Years
+                                        class="doctor-details-span-2">{{ $doctorDetail->experience }} Years
                                         of Experience</span></p>
                                 <p><span
                                         class="doctor-details-span-1">Specializes
                                         :</span> <span
-                                        class="doctor-details-span-2">Psychiatrist,
-                                        Clinical Psychologist, Counselling
-                                        Psychologist, Neuropsychologist, Child
-                                        Psychologist, Marriage and Family
-                                        Therapist (MFT) , Addiction Counselor,
-                                        Behavioral Therapist,
-                                        Psychoanalyst</span></p>
+                                        class="doctor-details-span-2">{{ $doctorDetail->expertise_area }}</span></p>
                                 <p><span class="doctor-details-span-1">About
                                         :</span> <span
-                                        class="doctor-details-span-2">Specialities
-                                        Psychiatrist (Mental Health) Specializes
-                                        in mental health for Adults and
-                                        Children, including substance use
-                                        disorders. Psychiatrists are qualified
-                                        to assess both the mental and physical
-                                        aspects of psychological problems. They
-                                        aim to help patients lead better
-                                        life.</span></p>
+                                        class="doctor-details-span-2">{{ $doctorDetail->description }}</span></p>
                                 <div class="doctor-details-line"></div>
                                 <p class="doctor-details-special-p"><span
                                         class="doctor-details-span-1">Consult
                                         Duration</span> <span
-                                        class="doctor-details-span-3">30
-                                        Minutes</span></p>
+                                        class="doctor-details-span-3">{{ $doctorDetail->session_length }} Minutes</span></p>
                                 <p class="doctor-details-special-p"><span
                                         class="doctor-details-span-1">Total
                                         Amount</span> <span
                                         class="doctor-details-span-3">$
-                                        200</span></p>
+                                        {{ $doctorDetail->medicare_amount }}</span></p>
                             </div>
                         </div>
                     </div>
@@ -154,10 +138,9 @@
                                     <div class="form-group">
                                         <label for="consultant-type">Consultant Types</label>
                                         <select id="consultant-type">
-                                            <option>Consultant Type-1</option>
-                                            <option>Consultant Type-2</option>
-                                            <option>Consultant Type-3</option>
-                                            <!-- Add more options as needed -->
+                                            @foreach ($therapyTypes as $therapyType)
+                                             <option value="{{ $therapyType }}">{{ $therapyType }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                             
@@ -165,8 +148,7 @@
                                     <div class="form-group">
                                         <label for="select-date">Select Date</label>
                                         <div class="date-input-wrapper">
-                                            <input type="date" id="appointment-date" class="date-input" placeholder="Select Date">
-                                            <img src="./assets/images/Calendar.svg" alt="Calendar Icon" class="custom-calendar-icon">
+                                            <input type="date" id="appointment-date" class="form-control">
                                         </div>
                                     </div>
                             
@@ -174,13 +156,9 @@
                                     <div class="form-group">
                                         <label>Available Slot</label>
                                         <div class="time-slots">
-                                            <button type="button" class="time-slot">8:00 AM</button>
-                                            <button type="button" class="time-slot">10:00 AM</button>
-                                            <button type="button" class="time-slot">12:00 PM</button>
-                                            <button type="button" class="time-slot">2:00 PM</button>
-                                            <button type="button" class="time-slot">4:00 PM</button>
-                                            <button type="button" class="time-slot">6:00 PM</button>
-                                            <!-- Add more time slots as needed -->
+                                            @foreach ($avableSlots as $avableSlot)
+                                            <button type="button" class="time-slot">{{ $avableSlot }}</button>
+                                            @endforeach
                                         </div>
                                     </div>
                             
