@@ -13,12 +13,19 @@ return new class extends Migration
     {
         Schema::create('appoinments', function (Blueprint $table) {
             $table->id();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('consultation_type');
+            $table->string('slot');
+            $table->longText('message');
             $table->string('age');
             $table->dateTime('date');
             $table->string('fees');
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
-            $table->foreignId('doctor_personal_info_id')->constrained()->onDelete('cascade');
-            $table->string('status')->default(0);
+            $table->foreignId('psychologist_id')->constrained()->onDelete('cascade');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

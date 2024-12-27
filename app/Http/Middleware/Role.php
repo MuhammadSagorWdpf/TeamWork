@@ -22,7 +22,7 @@ class Role
 
         $authRole = Auth::user()->role;
         if ($authRole !== $role) {
-            return redirect()->route("{$authRole}about"); // Redirect to the appropriate dashboard
+            return redirect()->route("login"); // Redirect to the appropriate dashboard
         }
 
         return $next($request);

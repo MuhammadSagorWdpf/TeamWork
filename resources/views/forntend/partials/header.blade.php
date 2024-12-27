@@ -43,9 +43,22 @@
 </li>
 
           </ul>
-          <!-- <a href="{{url('account-type')}}" class="nav-btn {{ request()->is('account-type*') ? 'tm-menu-item': ''}}">Get started</a> -->
-          <a href="{{ route('account-type') }}" class="nav-btn {{ request()->routeIs('account-type') ? 'tm-menu-item' : '' }}">Get started</a>
+          
+          @auth
+          <p>{{ Auth::user()->role }}</p>
+          <form action="{{route('logout')}}" method="post">
+            @csrf
+            <button type="submit" class="logout-nav d-flex align-items-center " style="border: none;">
+              <span>Logout</span>
+            </button>
+          </form>
+          @endauth
 
+          @guest
+          <a href="{{ route('account-type') }}" class="nav-btn {{ request()->routeIs('account-type') ? 'tm-menu-item' : '' }}">Get started</a>
+          @endguest
+
+          
 
         </div>
       </div>

@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="mamun-link">Already Have An Account? <a href="{{route('sign-in')}}">Sign In</a></p>
+                    <p class="mamun-link">Already Have An Account? <a href="{{route('login')}}">Sign In</a></p>
                 </div>
             </section>
         </main>

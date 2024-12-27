@@ -19,8 +19,8 @@ class CmsFactory extends Factory
     public function definition(): array
     {
         return [
-            'page' => $this->faker->randomElement([Page::class]),
-            'section' => $this->faker->randomElement([Section::class]),
+            'page' => $this->faker->randomElement(Page::cases())->value,
+            'section' => $this->faker->randomElement(Section::cases())->value,
             'images' => $this->faker->imageUrl(),
             'url' => $this->faker->url,
             'title' => $this->faker->sentence,

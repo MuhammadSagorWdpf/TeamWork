@@ -2,12 +2,12 @@
 
 namespace App\Enums;
 
-enum Page
+enum Page: string
 {
-    const Homepage = 'home';
-    const AboutPage = 'about';
-    const ServicesPage = 'services';
-    const AppointmentPage = 'appointment';
-    const PsychologistPage = 'psychologist';
+    case Homepage = 'home';
+    case AboutPage = 'about';
+    case ServicesPage = 'services';
+    case AppointmentPage = 'appointment';
+    case PsychologistPage = 'psychologist';
 }
 

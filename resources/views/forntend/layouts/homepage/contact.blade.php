@@ -109,16 +109,23 @@
                                 <h2 class="tm-common-heading">Book An Appointment</h2>
                                 <p class="booking-map-para">Schedule an appointment with our experts to take the first step toward better mental health today.</p>
                             
-                                <form class="appointment-form">
+                                <form class="appointment-form" action="{{ route('apointment.store') }}" method="post" id="msform" enctype="multipart/form-data">
+                                    @csrf
                                     <!-- names -->
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label for="first-name">First Name</label>
-                                            <input type="text" id="first-name" placeholder="Enter First Name">
+                                            <input type="text" id="first-name" name="first_name" placeholder="Enter First Name" value="{{ old('first_name') }}">
+                                            @error('first_name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="last-name">Last Name</label>
-                                            <input type="text" id="last-name" placeholder="Enter Last Name">
+                                            <input type="text" id="last-name" name="last_name" placeholder="Enter Last Name" value="{{ old('last_name') }}">
+                                            @error('last_name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -126,29 +133,50 @@
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" id="email" placeholder="Enter Email">
+                                            <input type="email" id="email" name="email" placeholder="Enter Email" value="{{ old('email') }}">
+                                            @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="phone">Phone</label>
-                                            <input type="text" id="phone" placeholder="Enter Phone Number">
+                                            <input type="text" id="phone" name="phone" placeholder="Enter Phone Number" value="{{ old('phone') }}">
+                                            @error('phone')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                             
-                                    <!-- Consultant Type -->
-                                    <div class="form-group">
-                                        <label for="consultant-type">Consultant Types</label>
-                                        <select id="consultant-type">
-                                            @foreach ($therapyTypes as $therapyType)
-                                             <option value="{{ $therapyType }}">{{ $therapyType }}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="form-row">
+                                        <!-- Consultant Type -->
+                                        <div class="form-group">
+                                            <label for="consultant-type">Consultant Types</label>
+                                            <select id="consultant-type" name="consultation_type">
+                                                @foreach ($therapyTypes as $therapyType)
+                                                <option value="{{ $therapyType }}">{{ $therapyType }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('consultation_type')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="age">Age</label>
+                                            <input type="number" id="age" name="age" placeholder="Enter your age" value="{{ old('age') }}">
+                                            @error('age')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
                                     </div>
                             
                                     <!-- Select Date -->
                                     <div class="form-group">
                                         <label for="select-date">Select Date</label>
                                         <div class="date-input-wrapper">
-                                            <input type="date" id="appointment-date" class="form-control">
+                                            <input type="date" id="appointment-date" name="date" class="form-control" value="{{ old('date') }}">
+                                            @error('date')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                             
@@ -157,17 +185,28 @@
                                         <label>Available Slot</label>
                                         <div class="time-slots">
                                             @foreach ($avableSlots as $avableSlot)
-                                            <button type="button" class="time-slot">{{ $avableSlot }}</button>
+                                            <input type="checkbox" name="slot" value="{{ $avableSlot }}">
+                                            <label for="{{ $avableSlot }}">{{ $avableSlot }}</label>
                                             @endforeach
                                         </div>
+                                        @error('slot')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
-                            
+
+                                    <input type="hidden" name="psychologist_id" value="{{ $doctorDetail->id }}">
+                                    <input type="hidden" name="fees" value="{{ $doctorDetail->session_fee }}">
+                                    
                                     <!-- Message -->
                                     <div class="form-group">
                                         <label for="message">Your Message</label>
-                                        <textarea id="message" placeholder="Enter your details"></textarea>
+                                        <textarea id="message" name="message" placeholder="Enter your details">{{ old('message') }}</textarea>
+                                        @error('message')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                             
+                                    
                                     <button type="submit" class="submit-button">Book An Appointment</button>
                                 </form>
                             </div>           

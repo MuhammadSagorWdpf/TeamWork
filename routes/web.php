@@ -15,7 +15,7 @@ use App\Http\Controllers\Web\Frontend\DoctorSignupController;
 use App\Http\Controllers\Web\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[BannerController::class, 'getBanner']);
+Route::get('/',[BannerController::class, 'getBanner'])->name('home');
 
 /* Route::get('/dashboard', function () {
     return view('dashboard');
@@ -50,8 +50,9 @@ Route::middleware(['role:admin'])->group(function () {
 });
 
 // doctor dashboard route
+Route::middleware(['role:doctor'])->group(function () {
 Route::get('/doctor-dashboard', [DoctorController::class, 'index'])->name('doctor.dashboard');
-
+});
 
 //Home section
 Route::get('/account-type',[HomeController::class, 'accountType'])->name('account-type');
@@ -61,7 +62,7 @@ Route::get('/psychologist',[HomeController::class, 'psychologist'])->name('psych
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 
 //login-registration
-Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
+// Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
 Route::get('/sign-up',[HomeController::class, 'signUp'])->name('sign-up');
 
 //home banner
@@ -137,8 +138,10 @@ Route::get('/slots/delete/{id}', [DoctorController::class, 'slotsDelete'])->name
 Route::get('/doctor/detail/{id}', [DoctorController::class, 'doctorDetail'])->name('doctor.detail');
 
 
+Route::post('/apointment/store', [HomeController::class, 'apointmentStore'])->name('apointment.store');
 
-
+Route::get('/client/info', [HomeController::class, 'clientInfo'])->name('client.info');
+Route::post('/client/store', [HomeController::class, 'clientInfoStore'])->name('client.store');
 
 
 

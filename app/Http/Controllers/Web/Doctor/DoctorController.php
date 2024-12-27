@@ -7,6 +7,8 @@ use App\Models\Psychologist;
 use App\Models\Slot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\Datatables;
+
 
 class DoctorController extends Controller
 {
@@ -17,10 +19,10 @@ class DoctorController extends Controller
     }
 
     // slots page
-    public function slots()
+    public function slots(Request $request)
     {
         $slots = Slot::all();
-        return view("backend.doctor.cms.slot.slot", compact("slots"));
+        return view("backend.doctor.cms.slot.slot" , compact("slots"));
     }
 
     // slots create

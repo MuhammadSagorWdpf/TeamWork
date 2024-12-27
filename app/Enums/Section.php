@@ -4,14 +4,15 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-enum Section
+enum Section: string
 {
-    const Banner = 'banner';
-    const Services = 'services';
-    const HomeServices = 'services';
-    const Psychologists = 'psychologists';
-    const Rebates = 'rebates';
-    const Articles = 'articles';
-    const Abouts = 'abouts';
-    const Faqs = 'faqs';
+    case Banner = 'banner';
+    case Services = 'services';
+    case HomeServices = 'services';
+    case Psychologists = 'psychologists';
+    case Rebates = 'rebates';
+    case Articles = 'articles';
+    case Abouts = 'abouts';
+    case Faqs = 'faqs';
+    
 }
