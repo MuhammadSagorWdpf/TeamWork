@@ -61,7 +61,7 @@
             </svg>
             <span> Messages </span>
           </a>
-          <a href="{{ route('setting') }}" class="item">
+          <a href="{{ route('client.setting') }}" class="item">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -82,7 +82,7 @@
                 fill=""
               />
             </svg>
-            <span>Settings</span>
+            <span>Client Settings</span>
           </a>
           
         </div>

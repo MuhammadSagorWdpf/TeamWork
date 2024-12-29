@@ -6,9 +6,9 @@
 <div class="main-content">
     <div class="main-content-container">
  <!-- main container header start -->
- <div class="main-content-header">
+ <div class="main-content-header client_dashboard">
     <svg class="menu-icon" width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
-    <div class="section-title header-title">Welcome Mr. John Doe 👋</div>
+    <div class="section-title header-title">Welcome {{ Auth::user()->name }} 👋</div>
     <div class="header-actions">
       <div class="search-bar">
         <input placeholder="Search Here..." type="text" />
@@ -226,21 +226,21 @@
       </div>
 
       <!-- dashboard bottom start -->
-       <div class="dashboard-bottom mt-4 mt-md-5">
+       <div class="dashboard-bottom mt-4 mt-md-5 d-flex">
         <div class="left">
           <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between ">
             <div class="dashboard-title">Top Rated Doctors</div>
             <a class="more-btn" href="./doctors.html">More >></a>
           </div>
           <div class="top-doctors-list mt-4">
-            <div class="item">
+            <div class="item-wrapper">
               <div class="item-left">
                 <div class="number">#1</div>
                 <div class="doctor-img">
                   <img src="{{asset('assets/images/doctor-img.png')}}" alt="">
                 </div>
               </div>
-              <div class="item-right">
+              <div class="item-right d-flex gap-5">
                 <div class="doctor-info">
                   <div class="doctor-title">
                     Dr. Samantha Queque

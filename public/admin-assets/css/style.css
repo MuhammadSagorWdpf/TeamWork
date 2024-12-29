@@ -89,6 +89,7 @@ main {
 /* main design start */
 .layout-container {
   display: flex;
+  width: 100%;
 }
 .sidebar.active {
   left: 0;
@@ -135,6 +136,21 @@ main {
   overflow-y: auto;
 }
 .sidebar-navs .item, .logout-nav {
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #5e5e5e;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 132%;
+  letter-spacing: -0.36px;
+  transition: var(--base-transition);
+  cursor: pointer;
+}
+.itrm2{
   padding: 12px 24px;
   display: flex;
   align-items: center;
@@ -789,12 +805,12 @@ main {
 
 .fa-pen-to-square{
   color: green;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .fa-trash{
-  color: red;
-  font-size: 1.5rem;
+  color: rgb(207, 6, 6);
+  font-size: 1.2rem;
 }
 
 .dropdown-menu {

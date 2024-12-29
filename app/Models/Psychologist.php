@@ -12,4 +12,6 @@ class Psychologist extends Model
     protected $table = 'psychologists';
 
     protected $guarded=[];
+
+    
 }

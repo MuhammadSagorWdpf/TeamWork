@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -30,8 +32,31 @@ class AdminController extends Controller
     {
         return view('backend.admin.layouts.message');
     }
-    public function settings()
+    public function adminSettings()
     {
-        return view('backend.admin.layouts.settings');
+        $setting = Auth::user();
+        return view('backend.admin.partials.setting', compact('setting'));
+    }
+
+    public function adminSettingUpdate(Request $request, $id)
+    {
+        $admin = User::find($id);
+        $request->validate([
+            'name'=> 'required',
+            'email'=> 'required',
+            'password'=> 'required',
+        ]);
+        $data = $admin->update([
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'password'=> bcrypt($request->password),
+        ]);
+        if ($data) {
+            flash()->success('Profile Updated Successfully');
+            return redirect()->back();
+        } else {
+            flash()->error('Data update failed!');
+            return redirect()->back();
+        }
     }
 }

@@ -11,7 +11,7 @@
             <a href="{{ route('slots.create') }}" class="btn btn-sm btn-primary">Create</a>
           </div>
           
-          <div class=" appointments-action-container mt-4 mt-md-5 ">
+          {{-- <div class=" appointments-action-container mt-4 mt-md-5 ">
               <div class="search-bar">
                 <input placeholder="Search type of keywords" type="text" />
                 <svg
@@ -49,11 +49,11 @@
                   </div>
               </div>
                
-          </div>
+          </div> --}}
           <!-- client data table start -->
           <div class="data-table-container mt-4">
             <div class="data-table table-responsive mt-4">
-              <table class="table">
+              <table id="example" class="table">
                 <thead>
                   <tr>
                     <th scope="col">Psychologist Id</th>
@@ -63,7 +63,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($slots as $slot)
+                  {{-- @foreach ($slots as $slot)
                    <tr>
                     <td>{{ $slot->psychologist_id }}</td>
                     <td>{{ $slot->day }}</td>
@@ -74,7 +74,7 @@
                         <a onclick="deleteData(event)" href="{{ route('slot.delete', $slot->id) }}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                   </tr>                    
-                  @endforeach        
+                  @endforeach         --}}
                 </tbody>
               </table>
             </div>
@@ -84,6 +84,29 @@
         
       </div>
     </div>
+
+    
+<!-- DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $('#example').DataTable({
+              processing: true,
+              serverSide: true,
+              ajax: {
+                  url: "{{ route('slots') }}", // Adjust to match your Laravel route
+                  type: "GET"
+              },
+              columns: [
+                  { data: 'psychologist_id', name: 'psychologist_id' },       
+                  { data: 'day', name: 'day' },   
+                  { data: 'slot', name: 'slot' }  
+              ]
+          });
+
+      });
+  </script>
 
     <script>
       function deleteData(e){

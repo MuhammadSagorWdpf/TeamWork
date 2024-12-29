@@ -45,7 +45,7 @@
           </ul>
           
           @auth
-          <p>{{ Auth::user()->role }}</p>
+          <p>{{ Auth::user()->name }}</p>
           <form action="{{route('logout')}}" method="post">
             @csrf
             <button type="submit" class="logout-nav d-flex align-items-center " style="border: none;">

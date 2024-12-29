@@ -4,6 +4,7 @@
   <!-- main content start -->
   <div class="main-content">
     <div class="main-content-container">  
+      @include('backend.partials.header')
       <div class="section-title mt-4">Schedule</div>
       <div class="mt-4 mt-md-5" id="calendar"></div>
               

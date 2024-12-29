@@ -36,7 +36,8 @@ Route::middleware(['role:client'])->group(function(){
     Route::get('/client/appoinment',[DashboardController::class, 'clientAppoinment'])->name('client.appoinment');
     Route::get('/client/doctor',[DashboardController::class, 'clientDoctor'])->name('client.doctor');
     Route::get('/doctor/profile',[DashboardController::class, 'doctorProfile'])->name('doctor.profile');
-    Route::get('/setting',[DashboardController::class, 'setting'])->name('setting');
+    Route::get('/client/setting',[DashboardController::class, 'clientSetting'])->name('client.setting');
+    Route::put('/client/setting/update/{id}',[DashboardController::class, 'clientSettingUpdate'])->name('client.setting.update');
 });
 
 
@@ -45,13 +46,23 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/appointments',[AdminController::class, 'appointments'])->name('appointments');
     Route::get('/doctor-schedul', [AdminController::class, 'schedul'])->name('doctor-schedul');
     Route::get('/invoice', [AdminController::class, 'invoice'])->name('invoice');
-    Route::get('/settings',[AdminController::class, 'settings'])->name('settings');
+    Route::get('/admin/settings',[AdminController::class, 'adminSettings'])->name('admin.settings');
+    Route::put('/admin/setting/update/{id}',[AdminController::class, 'adminSettingUpdate'])->name('admin.setting.update');
     Route::get('/message',[AdminController::class, 'message'])->name('message');
 });
 
 // doctor dashboard route
 Route::middleware(['role:doctor'])->group(function () {
 Route::get('/doctor-dashboard', [DoctorController::class, 'index'])->name('doctor.dashboard');
+Route::post('/doctor/store', [DoctorSignupController::class, 'storeDoctor'])->name('doctor.store');
+Route::get('/slots', [DoctorController::class, 'slots'])->name('slots');
+Route::get('/slots/create', [DoctorController::class, 'slotsCreate'])->name('slots.create');
+Route::post('/slots/store', [DoctorController::class, 'slotsStore'])->name('slots.store');
+Route::put('/slots/update/{id}', [DoctorController::class, 'slotsUpdate'])->name('slots.update');
+Route::get('/slots/edit/{id}', [DoctorController::class, 'slotsEdit'])->name('slot.edit');
+Route::get('/slots/delete/{id}', [DoctorController::class, 'slotsDelete'])->name('slot.delete');
+Route::get('/settings',[DoctorController::class, 'doctorSettings'])->name('settings');
+Route::put('/setting/update/{id}',[DoctorController::class, 'doctorSettingUpdate'])->name('setting.update');
 });
 
 //Home section
@@ -125,13 +136,7 @@ Route::get('/abouts/edit/{id}',[AboutController::class, 'aboutsEdit'])->name(nam
 Route::put('/abouts/update/{id}',[AboutController::class, 'aboutsUpdate'])->name(name: 'abouts.update');
 
 // store doctor
-Route::post('/doctor/store', [DoctorSignupController::class, 'storeDoctor'])->name('doctor.store');
-Route::get('/slots', [DoctorController::class, 'slots'])->name('slots');
-Route::get('/slots/create', [DoctorController::class, 'slotsCreate'])->name('slots.create');
-Route::post('/slots/store', [DoctorController::class, 'slotsStore'])->name('slots.store');
-Route::put('/slots/update/{id}', [DoctorController::class, 'slotsUpdate'])->name('slots.update');
-Route::get('/slots/edit/{id}', [DoctorController::class, 'slotsEdit'])->name('slot.edit');
-Route::get('/slots/delete/{id}', [DoctorController::class, 'slotsDelete'])->name('slot.delete');
+
 
 
 // doctor details

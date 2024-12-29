@@ -7,6 +7,7 @@ use App\Models\Appoinment;
 use App\Models\Client;
 use App\Models\CMS;
 use App\Models\Psychologist;
+use App\Models\Slot;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,6 +69,18 @@ class HomeController extends Controller
         $client = Client::where("email", $user)->pluck('id')->first();
 
         // return $client;
+
+        // week name
+        $todayWeekName = date('l');
+        $avableSlots = Slot::where("day", $todayWeekName)->pluck("slot");
+
+        $appoinmentsAvableSlots = Appoinment::where('slot', $avableSlots)->exists();
+        // already booked slots check
+        if($appoinmentsAvableSlots)
+        {
+            flash()->error('Appoinment time slot already booked!');
+            return redirect()->back();
+        }
 
         $data = Appoinment::create([
             'first_name'=> $request->first_name,
@@ -141,6 +154,7 @@ class HomeController extends Controller
         ]);
 
         User::create([
+            'name'=> $request->first_name,
             'email'=> $request->email,
             'password'=> Hash::make($request->password),
         ]);

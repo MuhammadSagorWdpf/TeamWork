@@ -188,6 +188,13 @@
                                             <input type="checkbox" name="slot" value="{{ $avableSlot }}">
                                             <label for="{{ $avableSlot }}">{{ $avableSlot }}</label>
                                             @endforeach
+
+                                            {{-- @if($appoinmentsAvableSlots = $avableSlot) 
+                                            <input type="checkbox" name="slot" value="{{ $avableSlot }}" checked>
+                                            <label for="{{ $avableSlot }}">{{ $avableSlot }}</label>
+                                            @else
+                                            <input type="checkbox" name="slot" value="{{ $avableSlot }}">
+                                            @endif --}}
                                         </div>
                                         @error('slot')
                                             <span class="text-danger">{{ $message }}</span>
@@ -207,7 +214,12 @@
                                     </div>
                             
                                     
+                                    @auth
                                     <button type="submit" class="submit-button">Book An Appointment</button>
+                                    @endauth
+                                    @guest
+                                        <a href="{{ route('login') }}">login to book an appointment</a>
+                                    @endguest
                                 </form>
                             </div>           
                         </div>

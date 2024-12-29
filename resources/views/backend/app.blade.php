@@ -8,6 +8,7 @@
     @include('backend.partials.style')
 </head>
 <body>
+    {{-- @include('backend.partials.header') --}}
     <div class="layout-container">
         @include('backend.partials.sidebar')
         @yield('content')

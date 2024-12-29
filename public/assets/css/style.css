@@ -86,6 +86,7 @@ main {
 /* main design start */
 .layout-container {
   display: flex;
+  width: 100%;
 }
 .sidebar.active {
   left: 0;
@@ -170,6 +171,9 @@ main {
   justify-content: space-between;
   width: 100%;
   flex-grow: 1;
+}
+.setting{
+  height: 85vh;
 }
 .main-content-container {
   width: 100%;
@@ -721,7 +725,7 @@ main {
     display: none;
   }
   .main-content-header {
-    padding: 24px 0px;
+    padding: 20px 0px;
     display: flex;
   }
   .pagination {
@@ -777,3 +781,28 @@ main {
   }
 }
 @media screen and (min-width: 1700px){}
+
+.tm-settings-img-upload-area{
+  display: flex;
+  justify-content: space-between;
+}
+
+.client_dashboard{
+  width: 80%;
+}
+
+.dashboard-bottom{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.item-wrapper{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.doctor-ratings{
+  display: grid;
+}
