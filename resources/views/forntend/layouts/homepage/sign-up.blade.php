@@ -7,7 +7,7 @@
                     <!-- MultiStep Form -->
                     <div class="row">
                         <div class="col">
-                            <form class="msform" method="POST" action="{{ route('doctor.store') }}" enctype="multipart/form-data">
+                            <form class="msform" method="POST" action="{{ route('psychologist.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">

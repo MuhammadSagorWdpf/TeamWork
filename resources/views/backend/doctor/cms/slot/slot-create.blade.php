@@ -39,7 +39,13 @@
                     @enderror
                 </div>
             </div>
-
+            <div class="form-group">
+              <label for="my-input">Date</label>
+              <input class="form-control" type="date" name="slot_date">
+              @error('slot_date')
+                  <span class="text-danger">{{ $message }}</span>
+              @enderror
+          </div>
                 <button style="background-color: #187586;" class="tm-dashboard-btn" type="submit">Create</button>
             </form>
             

@@ -38,8 +38,15 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                
             </div>
-
+            <div class="form-group">
+              <label for="my-input">Date</label>
+              <input class="form-control w-50" type="date" name="slot_date" value="{{ old('slot_date', $psychologist->slot_date) }}">
+              @error('slot_date')
+                  <span class="text-danger">{{ $message }}</span>
+              @enderror
+          </div>
                 <button style="background-color: #187586;" class="tm-dashboard-btn" type="submit">Update</button>
             </form>
             

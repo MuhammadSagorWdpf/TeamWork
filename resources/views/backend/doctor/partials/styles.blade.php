@@ -28,9 +28,4 @@
     <link rel="stylesheet" href="{{asset('admin-assets/css/plugins/nice-select.min.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.css" rel="stylesheet">
    
-
-  {{-- yajra datatable --}}
- <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
- 
-   
  

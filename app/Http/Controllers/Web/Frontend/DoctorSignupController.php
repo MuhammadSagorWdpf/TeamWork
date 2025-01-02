@@ -14,7 +14,6 @@ class DoctorSignupController extends Controller
 {
     public function storeDoctor(Request $request)
     {
-       
         $request->validate([
             "first_name" => "required",
             "last_name" => "required",
@@ -39,7 +38,6 @@ class DoctorSignupController extends Controller
             "certificate_image"=> "required|image|mimes:jpg,png,jpeg,gif,svg",
             "profile_image"=> "required|image|mimes:jpg,png,jpeg,gif,svg",
         ]);
-        
         //handaling image upload
         if( $request->hasFile("profile_image") ) {
             $file = $request->file("profile_image");
@@ -80,6 +78,7 @@ class DoctorSignupController extends Controller
         ]);
         
         User::create([
+            "name"=> $request->first_name,
             "email"=> $request->email,
             "password"=> Hash::make($request->password),
         ]);
@@ -87,7 +86,7 @@ class DoctorSignupController extends Controller
 
         if($data) {
             flash()->success('Psychologist created successfully');
-            return redirect()->route('sign-in');
+            return redirect()->route('home');
         } else {
             flash()->error('Data create failed!');
             return redirect()->back();

@@ -17,7 +17,7 @@ class Role
     {
        
         if (!Auth::check()) {
-            return redirect()->route('sign-in');
+            return redirect()->route('login');
         }
 
         $authRole = Auth::user()->role;

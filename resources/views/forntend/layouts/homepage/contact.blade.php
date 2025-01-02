@@ -172,42 +172,36 @@
                                     <!-- Select Date -->
                                     <div class="form-group">
                                         <label for="select-date">Select Date</label>
-                                        <div class="date-input-wrapper">
-                                            <input type="date" id="appointment-date" name="date" class="form-control" value="{{ old('date') }}">
-                                            @error('date')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
+                                        <input onchange="selectDate()" type="date" id="select-date" name="date" value="{{ date('Y-m-d') }}">
                                     </div>
-                            
+                                    
                                     <!-- Available Slot -->
                                     <div class="form-group">
                                         <label>Available Slot</label>
-                                        <div class="time-slots">
-                                            @foreach ($avableSlots as $avableSlot)
-                                            <input type="checkbox" name="slot" value="{{ $avableSlot }}">
-                                            <label for="{{ $avableSlot }}">{{ $avableSlot }}</label>
-                                            @endforeach
-
-                                            {{-- @if($appoinmentsAvableSlots = $avableSlot) 
-                                            <input type="checkbox" name="slot" value="{{ $avableSlot }}" checked>
-                                            <label for="{{ $avableSlot }}">{{ $avableSlot }}</label>
-                                            @else
-                                            <input type="checkbox" name="slot" value="{{ $avableSlot }}">
-                                            @endif --}}
+                                        <div class="time-slots" id="slots">
+                                            @if (date('Y-m-d'))
+                                                @if (!empty($avableSlots) && count($avableSlots) > 0)
+                                                    @foreach ($avableSlots as $item)
+                                                        <input type="checkbox" id="slot_{{ $item }}" name="slot" value="{{ $item }}">
+                                                        <label for="slot_{{ $item }}">{{ $item }}</label>
+                                                    @endforeach
+                                                @else
+                                                    <p class="text-danger">Slot not available</p>
+                                                @endif
+                                            @endif
                                         </div>
                                         @error('slot')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
 
-                                    <input type="hidden" name="psychologist_id" value="{{ $doctorDetail->id }}">
+                                    <input type="hidden" id="psychologist_id" name="psychologist_id" value="{{ $doctorDetail->id }}">
                                     <input type="hidden" name="fees" value="{{ $doctorDetail->session_fee }}">
                                     
                                     <!-- Message -->
-                                    <div class="form-group">
+                                    <div class="form-group"> 
                                         <label for="message">Your Message</label>
-                                        <textarea id="message" name="message" placeholder="Enter your details">{{ old('message') }}</textarea>
+                                        <textarea class="w-100 form-control" id="message" name="message" placeholder="Enter your details">{{ old('message') }}</textarea>
                                         @error('message')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -231,4 +225,42 @@
         </main>
         <!-- main area ends -->
 </div>
+
+<script>
+   function selectDate() {
+    let date = document.getElementById('select-date').value; // Get selected date
+    let psychologist = document.getElementById('psychologist_id').value; // Get psychologist_id
+
+    $(document).ready(function() {
+        $.ajax({
+            url: '/select-date',
+            type: 'get',
+            data: {
+                date: date,
+                psychologist_id: psychologist // Pass psychologist_id
+            },
+            success: function(response) {
+                $('#slots').html(''); // Clear previous slots
+                
+                if (response && response.length > 0) {
+                    response.forEach(element => {
+                        $('#slots').append(
+                            `<div>
+                                <input type="checkbox" id="slot_${element}" name="slot" value="${element}">
+                                <label for="slot_${element}">${element}</label>
+                            </div>`
+                        );
+                    });
+                } else {
+                    $('#slots').html('<p class="text-danger">Slot not available</p>');
+                }
+            },
+            error: function() {
+                $('#slots').html('<p class="text-danger">Error fetching slots. Please try again later.</p>');
+            }
+        });
+    });
+}
+</script>
+
 @endsection

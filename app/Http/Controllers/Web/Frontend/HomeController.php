@@ -63,24 +63,20 @@ class HomeController extends Controller
             'message'=> 'required',
         ]);
         
-        // $user = Auth::user();
-        // $client = Client::where("email", $user->email)->first();
         $user = Auth::user()->email;
         $client = Client::where("email", $user)->pluck('id')->first();
 
         // return $client;
 
-        // week name
-        $todayWeekName = date('l');
-        $avableSlots = Slot::where("day", $todayWeekName)->pluck("slot");
-
-        $appoinmentsAvableSlots = Appoinment::where('slot', $avableSlots)->exists();
+        $appoinmentsAvableSlots = Appoinment::where("date", $request->date)->where('slot', $request->slot)->exists();
+        // return $appoinmentsAvableSlots;
+        
         // already booked slots check
         if($appoinmentsAvableSlots)
         {
             flash()->error('Appoinment time slot already booked!');
             return redirect()->back();
-        }
+        } 
 
         $data = Appoinment::create([
             'first_name'=> $request->first_name,

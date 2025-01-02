@@ -53,8 +53,6 @@ Route::middleware(['role:admin'])->group(function () {
 
 // doctor dashboard route
 Route::middleware(['role:doctor'])->group(function () {
-Route::get('/doctor-dashboard', [DoctorController::class, 'index'])->name('doctor.dashboard');
-Route::post('/doctor/store', [DoctorSignupController::class, 'storeDoctor'])->name('doctor.store');
 Route::get('/slots', [DoctorController::class, 'slots'])->name('slots');
 Route::get('/slots/create', [DoctorController::class, 'slotsCreate'])->name('slots.create');
 Route::post('/slots/store', [DoctorController::class, 'slotsStore'])->name('slots.store');
@@ -73,7 +71,7 @@ Route::get('/psychologist',[HomeController::class, 'psychologist'])->name('psych
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 
 //login-registration
-// Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
+Route::get('/sign-in',[HomeController::class, 'signIn'])->name('sign-in');
 Route::get('/sign-up',[HomeController::class, 'signUp'])->name('sign-up');
 
 //home banner
@@ -136,7 +134,8 @@ Route::get('/abouts/edit/{id}',[AboutController::class, 'aboutsEdit'])->name(nam
 Route::put('/abouts/update/{id}',[AboutController::class, 'aboutsUpdate'])->name(name: 'abouts.update');
 
 // store doctor
-
+Route::get('/doctor-dashboard', [DoctorController::class, 'index'])->name('doctor.dashboard');
+Route::post('/psychologist/store', [DoctorSignupController::class, 'storeDoctor'])->name('psychologist.store');
 
 
 // doctor details
@@ -150,7 +149,7 @@ Route::post('/client/store', [HomeController::class, 'clientInfoStore'])->name('
 
 
 
-
+Route::get('/select-date', [DoctorController::class,'selectDate'])->name('select.date');
 
 
 

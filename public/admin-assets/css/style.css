@@ -76,6 +76,8 @@ main {
   padding-right: 16px;
 }
 .section-title {
+  display: flex;
+  justify-content: space-between;
   color: #1e1e1e;
   font-family: Roboto;
   font-size: 20px;
@@ -837,3 +839,12 @@ main {
   border: none;
 }
 
+.btn1{
+  background: #187586;
+  font-size: 1rem;
+  padding: .1rem 1rem;
+  color: #fff;
+  border-radius: 5px;
+  list-style: none;
+  text-decoration: none;
+}

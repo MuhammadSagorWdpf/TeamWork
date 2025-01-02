@@ -24,8 +24,22 @@ class DoctorController extends Controller
     // slots page
     public function slots(Request $request)
     {
-        if(request()->ajax()){
-            return DataTables::eloquent(Slot::query())->make(true);
+        if ($request->ajax()) {
+            // Get the data from the Cms model
+            $data = Slot::query();
+            // Return DataTables response
+            return DataTables::of($data)
+                ->addIndexColumn()
+                // Action buttons column with custom buttons (Edit, Delete)
+                ->addColumn('action', function ($row) {
+                    return '
+                    <a href="'.route('slot.edit', $row->id).'" class="edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a onclick="deleteData(event)" href="'.route('slot.delete', $row->id).'" class="edit"><i class="fa-solid fa-trash"></i></a>
+                    ';
+                })
+                ->rawColumns(['action'])
+                // Return the DataTables response
+                ->make(true);
         }
         return view('backend.doctor.cms.slot.slot');
     }
@@ -40,23 +54,26 @@ class DoctorController extends Controller
     // slots store
     public function slotsStore(Request $request)
     {
+        // dd($request->all());
         // form validation
         $request->validate([
             "day" => "required",
             "slot" => "required",
+            "slot_date"=> "required",
         ]);
 
         // get the user
-        $doctor = Auth::user();
-        $psychologist_id = $doctor->id;
+        $doctor = Auth::user()->email;
+        $psychologist_id = Psychologist::where('email', $doctor)->first()->id;
 
         // insert data
-        $data = Slot::create([
-            "psychologist_id" => $psychologist_id,
-            "day" => $request->day,
-            "slot" => $request->slot,
-        ]);
+        $data = new Slot();
+        $data->day = $request->day;
+        $data->psychologist_id = $psychologist_id;
+        $data->slot = $request->slot;
+        $data->slot_date = $request->slot_date;
 
+        $data->save();
         // check the data insert
         if ($data) {
             flash()->success("slot created successfully");
@@ -80,15 +97,17 @@ class DoctorController extends Controller
         $request->validate([
             "day" => "required",
             "slot" => "required",
+            "slot_date"=> "required",
         ]);
 
         $psychologist = Slot::find($id);
-        $data = $psychologist->update([
-            "day" => $request->day,
-            "slot" => $request->slot
-        ]);
+        $psychologist->day = $request->day;
+        $psychologist->slot = $request->slot;
+        $psychologist->slot_date = $request->slot_date;
 
-        if ($data) {
+        $psychologist->save();
+
+        if ($psychologist) {
             flash()->success("slot updated successfully");
             return redirect()->route("slots");
         } else {
@@ -108,20 +127,20 @@ class DoctorController extends Controller
 
 
     // doctor profile
-    public function doctorDetail($id)
+    public function doctorDetail(Request $request, $id)
     {
         $doctorDetail = Psychologist::find($id);
         $therapyTypes = Psychologist::pluck('therapy_type');
-        //$avableSlots = Slot::where("psychologist_id", $id)->pluck("slot");
 
         // week name
-        $todayWeekName = date('l');
-        $avableSlots = Slot::where("day", $todayWeekName)->where("psychologist_id", $id)->pluck("slot");
+        $todaydate = Date('Y-m-d');
+        $avableSlots = Slot::where("slot_date", $todaydate)->where("psychologist_id", $id)->pluck("slot");
 
-        // $appoinmentsAvableSlots = Appoinment::where('slot', $avableSlots)->pluck('slot')->unique();
-        // return $appoinmentsAvableSlots;
+        //$selectDate = Slot::where("day", $todayWeekName)->where("psychologist_id", $id)->pluck("slot_date");
 
-        return view("forntend.layouts.homepage.contact", compact("doctorDetail", "therapyTypes", "avableSlots"));
+        $startDate = $request->input('date');
+
+        return view("forntend.layouts.homepage.contact", compact("doctorDetail", "therapyTypes", "avableSlots",'startDate'));
     }
 
     public function doctorSettings()
@@ -203,5 +222,18 @@ class DoctorController extends Controller
             flash()->error('Profile Update Failed!');
             return redirect()->back();
         };
+    }
+
+    public function selectDate(Request $request)
+    {
+        $userId = $request->input('psychologist_id');
+        $selectedDate = $request->input('date');
+
+        // Query to get slots based on psychologist_id and date
+        $matchedData = Slot::where('slot_date', $selectedDate)
+                        ->where('psychologist_id', $userId)
+                        ->pluck('slot');
+
+        return $matchedData;
     }
 }
