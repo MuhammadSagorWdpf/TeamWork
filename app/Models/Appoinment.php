@@ -11,4 +11,13 @@ class Appoinment extends Model
     protected $guarded = [];
 
 
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function psychologist()
+    {
+        return $this->belongsTo(Psychologist::class);
+    }
 }

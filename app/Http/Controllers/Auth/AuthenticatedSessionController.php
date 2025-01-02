@@ -30,14 +30,16 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user()->role; // get the role of the user
         if ($user == 'client') {
-            //return redirect()->route('client.dashboard');
+            flash()->success('Login Successfully');
             return redirect()->intended(route('client.dashboard', absolute: false));
         }
         elseif ($user == 'doctor') {
             //return redirect()->route('doctor.dashboard');
+            flash()->success('Login Successfully');
             return redirect()->intended(route('doctor.dashboard', absolute: false));
         }
        // return redirect()->route('admin-dashboard'); // redirect to the admin dashboard
+       flash()->success('Login Successfully');
        return redirect()->intended(route('admin-dashboard', absolute: false));
 
         //return redirect()->intended(route('dashboard', absolute: false));
@@ -54,6 +56,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
+        flash()->success('Logout Successfully');
         return redirect()->route('home');
     }
 }

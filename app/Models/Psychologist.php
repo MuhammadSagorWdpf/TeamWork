@@ -13,5 +13,9 @@ class Psychologist extends Model
 
     protected $guarded=[];
 
-    
+    public function appointments()
+    {
+        return $this->hasMany(Appoinment::class);
+    }
+
 }

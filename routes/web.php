@@ -9,6 +9,7 @@ use App\Http\Controllers\Web\Backend\Cms\FaqsController;
 use App\Http\Controllers\Web\Backend\Cms\PsychologistController;
 use App\Http\Controllers\Web\Backend\Cms\RebateController;
 use App\Http\Controllers\Web\Backend\Cms\ServiceController;
+use App\Http\Controllers\Web\Doctor\DoctorAppointmentController;
 use App\Http\Controllers\Web\Doctor\DoctorController;
 use App\Http\Controllers\Web\Frontend\DashboardController;
 use App\Http\Controllers\Web\Frontend\DoctorSignupController;
@@ -38,6 +39,8 @@ Route::middleware(['role:client'])->group(function(){
     Route::get('/doctor/profile',[DashboardController::class, 'doctorProfile'])->name('doctor.profile');
     Route::get('/client/setting',[DashboardController::class, 'clientSetting'])->name('client.setting');
     Route::put('/client/setting/update/{id}',[DashboardController::class, 'clientSettingUpdate'])->name('client.setting.update');
+    Route::get('/client/appoinment/edit/{id}',[DashboardController::class,'appointmentEdit'])->name('appoinment.edit');
+    Route::get('/client/appoinment/delete/{id}',[DashboardController::class,'appoinmentDelete'])->name('appoinment.delete');
 });
 
 
@@ -61,6 +64,9 @@ Route::get('/slots/edit/{id}', [DoctorController::class, 'slotsEdit'])->name('sl
 Route::get('/slots/delete/{id}', [DoctorController::class, 'slotsDelete'])->name('slot.delete');
 Route::get('/settings',[DoctorController::class, 'doctorSettings'])->name('settings');
 Route::put('/setting/update/{id}',[DoctorController::class, 'doctorSettingUpdate'])->name('setting.update');
+
+// apointment
+Route::get('/doctor/appointment', [DoctorAppointmentController::class, 'doctorAppointment'])->name('doctor.appointments');
 });
 
 //Home section

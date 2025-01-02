@@ -1,11 +1,10 @@
-@extends('backend.app')
-
+@extends('backend.doctor.app')
 @section('content')
   <!-- sidebar end -->
   <!-- main content start -->
   <div class="main-content mx-5">
     <div class="main-content-container">
-          @include('backend.partials.header')
+          @include('backend.doctor.partials.header')
         
           <div class="section-title my-4">
             <h2>Appointments</h2>
@@ -15,16 +14,14 @@
               <table id="example" class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Doctor Image</th>
+                    <th scope="col">Client Id</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Slot</th>
-                    <th scope="col">Consultation Type</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Session Length</th>
-                    <th scope="col">Session Fees</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Consultation Type</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Fees</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -38,6 +35,8 @@
         
       </div>
    
+
+
  
 <!-- DataTables JS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
@@ -50,18 +49,16 @@
         var table = $('#example').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('client.appoinment') }}",
+            ajax: "{{ route('doctor.appointments') }}",
             columns: [
-                {data: 'profile_image', name: 'profile_image'},
-                {data: 'psychologist.first_name', name: 'psychologist.first_name'},
-                {data: 'psychologist.phone_number', name: 'psychologist.phone_number'},
-                {data: 'psychologist.email', name: 'psychologist.email'},
-                {data: 'slot', name: 'slot'},
-                {data: 'consultation_type', name: 'consultation_type'},
+                {data: 'client.id', name: 'client.id'},
+                {data: 'first_name', name: 'first_name'},
+                {data: 'age', name: 'age'},
+                {data: 'client.gender', name: 'client.gender'},
                 {data: 'date', name: 'date'},
-                {data: 'psychologist.session_length', name: 'psychologist.session_length'},
-                {data: 'psychologist.medicare_amount', name: 'psychologist.medicare_amount'},
-                {data: 'action', name: 'action', orderable: false, searchable: false},
+                {data: 'consultation_type', name: 'consultation_type'},
+                {data: 'slot', name: 'slot'},
+                {data: 'fees', name: 'fees'},
             ]
         });
             

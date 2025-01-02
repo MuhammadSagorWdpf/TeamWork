@@ -27,4 +27,9 @@ class Client extends Model
         "gender",
         "image",
     ];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appoinment::class);
+    }
 }

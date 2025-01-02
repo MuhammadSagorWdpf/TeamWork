@@ -244,6 +244,7 @@
                 
                 if (response && response.length > 0) {
                     response.forEach(element => {
+                        // Append available slots
                         $('#slots').append(
                             `<div>
                                 <input type="checkbox" id="slot_${element}" name="slot" value="${element}">
@@ -252,9 +253,11 @@
                         );
                     });
                 } else {
-                    $('#slots').html('<p class="text-danger">Slot not available</p>');
+                    // append slot not available message
+                    $('#slots').html('<p class="text-danger">Slot not available select another date</p>');
                 }
             },
+            // Error handling
             error: function() {
                 $('#slots').html('<p class="text-danger">Error fetching slots. Please try again later.</p>');
             }
