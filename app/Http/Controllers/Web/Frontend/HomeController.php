@@ -21,11 +21,17 @@ class HomeController extends Controller
     }
     public function about()
     {
-        return view('forntend.layouts.homepage.about');
+        $psychologists = Psychologist::all();
+        $faqs = CMS::where('page','home')->where('section','faqs')->get();
+        $abouts = CMS::where('page','about')->where('section','abouts')->first();
+
+        return view('forntend.layouts.homepage.about', compact('psychologists','faqs','abouts'));
     }
     public function services()
     {
-        return view('forntend.layouts.homepage.services');
+        $articles = CMS::where('page','home')->where('section','articles')->get();
+        $services = CMS::where('page','service')->where('section','services')->first();
+        return view('forntend.layouts.homepage.services', compact('articles','services'));
     }
     public function psychologist()
     {

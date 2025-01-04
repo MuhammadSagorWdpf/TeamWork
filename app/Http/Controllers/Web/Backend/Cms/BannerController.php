@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Backend\Cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CMS;
+use App\Models\Psychologist;
 use Illuminate\Support\Facades\File;
 
 class BannerController extends Controller
@@ -15,8 +16,10 @@ class BannerController extends Controller
         $faqs = CMS::where('page','home')->where('section','faqs')->get();
         $rebates = CMS::where('page','home')->where('section','rebates')->first();
         $services = CMS::where('page','home')->where('section','services')->first();
+        $psychologists = Psychologist::all();
+        $articles = CMS::where('page','home')->where('section','articles')->get();
        
-       return view('forntend.layouts.home', compact('banner','faqs','rebates','services'));
+       return view('forntend.layouts.home', compact('banner','faqs','rebates','services','psychologists','articles'));
     }
 
     //banner

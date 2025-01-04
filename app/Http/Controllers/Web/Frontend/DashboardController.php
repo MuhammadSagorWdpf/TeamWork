@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Appoinment;
 use App\Models\Client;
+use App\Models\Psychologist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -47,8 +48,25 @@ class DashboardController extends Controller
         return view('backend.client.appoinment');
     }
 
-    public function clientDoctor(){
-        return view('backend.client.doctor');
+    public function clientDoctor(Request $request){
+        $therapyTypes = Psychologist::pluck('therapy_type')->unique();
+        if ($request->ajax()) {
+            $data = Psychologist::all();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('profile_image', function ($row) {
+                    return '
+                       <img src="'.asset('doctor/profile/'.$row->profile_image).'" width="50px" height="50px">
+                    ';
+                })
+                ->addColumn('action', function ($row) {
+                    return '<button type="submit" class="btn btn-success editBtn" data-id="'.$row->id.'">Make An Appointment</button>';
+                })
+                ->rawColumns(['profile_image','action'])
+               // Return the DataTables response
+               ->make(true);
+        }
+        return view('backend.client.doctor',compact('therapyTypes'));
     }
 
     public function doctorProfile(){
@@ -133,6 +151,17 @@ class DashboardController extends Controller
     // edit appoinment
     public function appointmentEdit($id)
     {
+        // $doctorDetail = Psychologist::find($id);
+        // $therapyTypes = Psychologist::pluck('therapy_type');
+
+        // week name
+        // $todaydate = Date('Y-m-d');
+        // $avableSlots = Slot::where("slot_date", $todaydate)->where("psychologist_id", $id)->pluck("slot");
+
+        //$selectDate = Slot::where("day", $todayWeekName)->where("psychologist_id", $id)->pluck("slot_date");
+
+        // $startDate = $request->input('date');
+
         $data = Appoinment::find($id);
         return view('backend.client.appoinment_edit', compact('data'));
     }
@@ -149,6 +178,16 @@ class DashboardController extends Controller
             flash()->error('Appoinment Delete Failed!');
             return redirect()->back();
         }
+    }
+
+    public function clientSingleDoctor($id)
+    {
+        $data = Psychologist::find($id);
+        $client_id = Auth::user()->id;
+        return response()->json([
+            'data' => $data,
+            'client' => $client_id
+        ]);
     }
 }
 

@@ -115,7 +115,7 @@
                 needs, ensuring you feel supported every step of the way.</p>
 
             </div>
-            <a class="tm-common-link" href="#">Meet With Doctor <span>
+            <a class="tm-common-link" href="{{ url('psychologist') }}">Meet With Doctor <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                   viewBox="0 0 32 32" fill="none">
                   <path
@@ -125,102 +125,20 @@
           </div>
 
           <div class="expert-card-wrapper">
-            <div class="expert-card-item">
+            @foreach ($psychologists as $psychologist)
+             <div class="expert-card-item">
               <div class="expert-card-img-area">
-                <img src="./assets/images/expert-1.png" alt srcset>
+                <img src="{{ asset('doctor/profile/'.$psychologist->profile_image) }}" alt srcset>
               </div>
               <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
+                <h5>{{ $psychologist->first_name }} {{ $psychologist->last_name }}</h5>
+                <p>Specialty - <span>{{ $psychologist->expertise_area }}</span></p>
+                <p>Primary Care - <span>{{ $psychologist->experience }}</span></p>
+                <a class="expert-card-item-link" href="{{ route('doctor.detail', $psychologist->id) }}">View Doctor Profile
                 </a>
               </div>
             </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-2.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-3.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-4.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-1.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-2.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-3.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
-            <div class="expert-card-item">
-              <div class="expert-card-img-area">
-                <img src="./assets/images/expert-4.png" alt srcset>
-              </div>
-              <div class="expert-card-content-area">
-                <h5>Dr. Emily Parker Woner</h5>
-                <p>Specialty - <span>Clinical Psychologist</span></p>
-                <p>Primary Care - <span>20 Years of Experience</span></p>
-                <a class="expert-card-item-link" href="#">View Doctor Profile
-                </a>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
 
@@ -274,60 +192,25 @@
             </div>
           </div>
           <div class="blog-collections-cards">
-            <!-- blog item-1 -->
-            <div class="blog-item">
+            @foreach ($articles as $article)
+             <div class="blog-item">
               <div class="blog-img-area">
-                <img src="./assets/images/blog-1.jpg" alt="blog-img-1" srcset="">
+                <img src="{{ asset('article/'.$article->images)}}" alt="blog-img-1" srcset="">
               </div>
               <div class="blog-content-area">
                 <div class="blog-date-heading-wrapper">
-                  <p>September 3, 2024</p>
-                  <h3>Understanding and Managing Panic Attacks</h3>
+                  <p>{{ $article->date }}</p>
+                  <h3>{{ $article->sub_title }}</h3>
                 </div>
                 <p class="blog-para">
-                  We offer specialized support for individuals with neurodiversity, providing tailored care to help them thrive and reach  of the
+                  {{ $article->description }}
                 </p>
                 <a class="blog-read-more" href="./blog.html">Read More <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                   <path d="M12 4.5H12.5V4H12V4.5ZM11.6465 4.14645L3.64648 12.1465L4.35359 12.8536L12.3536 4.85355L11.6465 4.14645ZM7.33337 5H12V4H7.33337V5ZM11.5 4.5V9.16667H12.5V4.5H11.5Z" fill="#187586"/>
                 </svg></span></a>
               </div>
             </div>
-            <!-- blog-item-2 -->
-            <div class="blog-item">
-              <div class="blog-img-area">
-                <img src="./assets/images/blog-2.jpg" alt="blog-img-1" srcset="">
-              </div>
-              <div class="blog-content-area">
-                <div class="blog-date-heading-wrapper">
-                  <p>September 3, 2024</p>
-                  <h3>The Importance of Sleep for Mental Health</h3>
-                </div>
-                <p class="blog-para">
-                  We offer specialized support for individuals with neurodiversity, providing tailored care to help them thrive and reach  of the
-                </p>
-                <a class="blog-read-more" href="./blog.html">Read More <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                  <path d="M12 4.5H12.5V4H12V4.5ZM11.6465 4.14645L3.64648 12.1465L4.35359 12.8536L12.3536 4.85355L11.6465 4.14645ZM7.33337 5H12V4H7.33337V5ZM11.5 4.5V9.16667H12.5V4.5H11.5Z" fill="#187586"/>
-                </svg></span></a>
-              </div>
-            </div>
-            <!-- blog-item-3 -->
-            <div class="blog-item">
-              <div class="blog-img-area">
-                <img src="./assets/images/blog-3.jpg" alt="blog-img-1" srcset="">
-              </div>
-              <div class="blog-content-area">
-                <div class="blog-date-heading-wrapper">
-                  <p>September 3, 2024</p>
-                  <h3>How to Manage Stress in a Busy World</h3>
-                </div>
-                <p class="blog-para">
-                  We offer specialized support for individuals with neurodiversity, providing tailored care to help them thrive and reach  of the
-                </p>
-                <a class="blog-read-more" href="./blog.html">Read More <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                  <path d="M12 4.5H12.5V4H12V4.5ZM11.6465 4.14645L3.64648 12.1465L4.35359 12.8536L12.3536 4.85355L11.6465 4.14645ZM7.33337 5H12V4H7.33337V5ZM11.5 4.5V9.16667H12.5V4.5H11.5Z" fill="#187586"/>
-                </svg></span></a>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
        </section>

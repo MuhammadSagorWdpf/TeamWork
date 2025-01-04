@@ -18,60 +18,60 @@
        <div class="container">
         <div class="service-content-wrapper">
           <div class="blog-details-img-area">
-             <img src="./assets/images/services.jpg" alt="blog post feature img">
+             <img src="{{ asset('home_service/'.$services->images)}}" alt="blog post feature img">
           </div>
           <div class="service-main-content-wrapper">
             <div class="services-content-header">
-              <h2 class="tm-common-heading">Individual Therapy</h2>
-              <p>Individual therapy offers a personalized and confidential space where you can work one-on-one with a licensed therapist to address emotional challenges, mental health concerns, and personal struggles. Each session is tailored to your unique needs, providing professional guidance to help you manage issues like anxiety, depression, stress, and trauma. Through a supportive and goal-oriented approach, individual therapy empowers you to gain self-awareness, develop coping strategies, and make meaningful progress towards improved mental well-being. With a compassionate therapist by your side, this therapeutic journey fosters growth, healing, and lasting positive change.</p>
+              <h2 class="tm-common-heading">{{ $services->title }}</h2>
+              <p>{{ $services->short_description }}</p>
             </div>
             <div class="service-content-lower">
-              <h2 class="tm-common-heading">Benefits Individual Therapy</h2>
+              <h2 class="tm-common-heading">{{ $services->sub_title }}</h2>
               <div class="services-content-lower-wrapper">
                 <div class="service-lower-item">
-                  <h3>Personalized Approach</h3>
-                  <p>Each session is tailored to your specific needs, whether you're dealing with anxiety, depression, stress, trauma, or other mental health issues.</p>
+                  <h3>{{ $services->card_title_1 }}</h3>
+                  <p>{{ $services->card_desc_1 }}</p>
                 </div>
                 <div class="service-lower-item">
-                  <h3>Confidential and Safe Environment</h3>
-                  <p>Therapy sessions are conducted in a confidential setting where you can openly share your thoughts and feelings without fear of judgment.</p>
+                  <h3>{{ $services->card_title_2 }}</h3>
+                  <p>{{ $services->card_desc_2 }}</p>
                 </div>
                 <div class="service-lower-item">
-                  <h3>Professional Guidance</h3>
-                  <p>Led by experienced and licensed therapists who are trained to help you navigate through emotional difficulties and develop practical solutions.</p>
+                  <h3>{{ $services->card_title_3 }}</h3>
+                  <p>{{ $services->card_desc_3 }}</p>
                 </div>
                 <div class="service-lower-item">
-                  <h3>Goal-Oriented</h3>
-                  <p>The therapist works with you to set and achieve specific mental health goals, empowering you to take control of your well-being.</p>
+                  <h3>{{ $services->card_title_4 }}</h3>
+                  <p>{{ $services->card_desc_4 }}</p>
                 </div>
                 <div class="service-lower-item">
-                  <h3>Supportive Relationship</h3>
-                  <p>Therapy provides a space to build trust and a strong rapport with your therapist, making it easier to explore your emotions and behaviors..</p>
+                  <h3>{{ $services->card_title_5 }}</h3>
+                  <p>{{ $services->card_desc_5 }}</p>
                 </div>
                 <div class="service-lower-item">
-                  <h3>Professional Guidance</h3>
-                  <p>Led by experienced and licensed therapists who are trained to help you navigate through emotional difficulties and develop practical solutions.</p>
+                  <h3>{{ $services->card_title_6 }}</h3>
+                  <p>{{ $services->card_desc_6 }}</p>
                 </div>
               </div>
             </div>
             <div class="service-content-lower">
-              <h2 class="tm-common-heading">What to Expect</h2>
+              <h2 class="tm-common-heading">{{ $services->sub_title_2 }}</h2>
               <div class="services-content-lower-wrapper">
                 <div class="service-lower-item">
-                  <h3>Initial Consultation</h3>
-                  <p>This session helps identify your concerns, establish goals, and create a customized plan tailored to your mental health needs.</p>
+                  <h3>{{ $services->card_title_7 }}</h3>
+                  <p>{{ $services->card_desc_7 }}</p>
                 </div>
                 <div class="service-lower-item">
-                  <h3>Ongoing Sessions</h3>
-                  <p>Regular one-on-one meetings to track your progress, explore challenges, and refine your coping strategies.</p>
+                  <h3>{{ $services->card_title_8 }}</h3>
+                  <p>{{ $services->card_desc_8 }}</p>
                 </div>
                 <div class="service-lower-item">
-                  <h3>Progress Evaluation</h3>
-                  <p> Periodically, the therapist will review your growth and adjust the approach to ensure you are moving towards your mental health goals.</p>
+                  <h3>{{ $services->card_title_9 }}</h3>
+                  <p>{{ $services->card_desc_9 }}</p>
                 </div>
                 <div class="service-lower-item">
-                  <h3>Goal-Oriented</h3>
-                  <p>The therapist works with you to set and achieve specific mental health goals, empowering you to take control of your well-being.</p>
+                  <h3>{{ $services->card_title_10 }}</h3>
+                  <p>{{ $services->card_desc_10 }}</p>
                 </div>
 
               </div>
@@ -91,60 +91,25 @@
             </div>
           </div>
           <div class="blog-collections-cards">
-            <!-- blog item-1 -->
-            <div class="blog-item">
+            @foreach ($articles as $article)
+             <div class="blog-item">
               <div class="blog-img-area">
-                <img src="./assets/images/blog-1.jpg" alt="blog-img-1" srcset="">
+                <img src="{{ asset('article/'.$article->images)}}" alt="blog-img-1" srcset="">
               </div>
               <div class="blog-content-area">
                 <div class="blog-date-heading-wrapper">
-                  <p>September 3, 2024</p>
-                  <h3>Understanding and Managing Panic Attacks</h3>
+                  <p>{{ $article->date }}</p>
+                  <h3>{{ $article->sub_title }}</h3>
                 </div>
                 <p class="blog-para">
-                  We offer specialized support for individuals with neurodiversity, providing tailored care to help them thrive and reach  of the
+                  {{ $article->description }}
                 </p>
                 <a class="blog-read-more" href="./blog.html">Read More <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                   <path d="M12 4.5H12.5V4H12V4.5ZM11.6465 4.14645L3.64648 12.1465L4.35359 12.8536L12.3536 4.85355L11.6465 4.14645ZM7.33337 5H12V4H7.33337V5ZM11.5 4.5V9.16667H12.5V4.5H11.5Z" fill="#187586"/>
                 </svg></span></a>
               </div>
             </div>
-            <!-- blog-item-2 -->
-            <div class="blog-item">
-              <div class="blog-img-area">
-                <img src="./assets/images/blog-2.jpg" alt="blog-img-1" srcset="">
-              </div>
-              <div class="blog-content-area">
-                <div class="blog-date-heading-wrapper">
-                  <p>September 3, 2024</p>
-                  <h3>The Importance of Sleep for Mental Health</h3>
-                </div>
-                <p class="blog-para">
-                  We offer specialized support for individuals with neurodiversity, providing tailored care to help them thrive and reach  of the
-                </p>
-                <a class="blog-read-more" href="./blog.html">Read More <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                  <path d="M12 4.5H12.5V4H12V4.5ZM11.6465 4.14645L3.64648 12.1465L4.35359 12.8536L12.3536 4.85355L11.6465 4.14645ZM7.33337 5H12V4H7.33337V5ZM11.5 4.5V9.16667H12.5V4.5H11.5Z" fill="#187586"/>
-                </svg></span></a>
-              </div>
-            </div>
-            <!-- blog-item-3 -->
-            <div class="blog-item">
-              <div class="blog-img-area">
-                <img src="./assets/images/blog-3.jpg" alt="blog-img-1" srcset="">
-              </div>
-              <div class="blog-content-area">
-                <div class="blog-date-heading-wrapper">
-                  <p>September 3, 2024</p>
-                  <h3>How to Manage Stress in a Busy World</h3>
-                </div>
-                <p class="blog-para">
-                  We offer specialized support for individuals with neurodiversity, providing tailored care to help them thrive and reach  of the
-                </p>
-                <a class="blog-read-more" href="./blog.html">Read More <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                  <path d="M12 4.5H12.5V4H12V4.5ZM11.6465 4.14645L3.64648 12.1465L4.35359 12.8536L12.3536 4.85355L11.6465 4.14645ZM7.33337 5H12V4H7.33337V5ZM11.5 4.5V9.16667H12.5V4.5H11.5Z" fill="#187586"/>
-                </svg></span></a>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
        </section>

@@ -12,7 +12,7 @@
           </div>
           
             
-              <table id="example" class="table">
+              <table id="client" class="table">
                 <thead>
                   <tr>
                     <th scope="col">Doctor Image</th>
@@ -47,7 +47,7 @@
     <script type="text/javascript">
       $(function () {
             
-        var table = $('#example').DataTable({
+        var table = $('#client').DataTable({
             processing: true,
             serverSide: true,
             ajax: "{{ route('client.appoinment') }}",

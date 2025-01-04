@@ -36,6 +36,7 @@ Route::middleware(['role:client'])->group(function(){
     Route::get('/client/dashboard',[DashboardController::class, 'clientDashboard'])->name('client.dashboard');
     Route::get('/client/appoinment',[DashboardController::class, 'clientAppoinment'])->name('client.appoinment');
     Route::get('/client/doctor',[DashboardController::class, 'clientDoctor'])->name('client.doctor');
+    Route::get('/single_doctor/{id}',[DashboardController::class, 'clientSingleDoctor']);
     Route::get('/doctor/profile',[DashboardController::class, 'doctorProfile'])->name('doctor.profile');
     Route::get('/client/setting',[DashboardController::class, 'clientSetting'])->name('client.setting');
     Route::put('/client/setting/update/{id}',[DashboardController::class, 'clientSettingUpdate'])->name('client.setting.update');
