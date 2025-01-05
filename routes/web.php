@@ -158,7 +158,7 @@ Route::post('/client/store', [HomeController::class, 'clientInfoStore'])->name('
 
 Route::get('/select-date', [DoctorController::class,'selectDate'])->name('select.date');
 
-
+Route::get('/markAsRead/{id}', [DoctorController::class, 'markAsRead'])->name('markAsRead'); 
 
 
 /* Route::middleware(['verified', 'role:admin'])->group(function () {

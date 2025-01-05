@@ -849,3 +849,19 @@ main {
   list-style: none;
   text-decoration: none;
 }
+.notification-btn{
+  position: relative;
+  cursor: pointer;
+}
+
+.notification-count{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px 6px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}

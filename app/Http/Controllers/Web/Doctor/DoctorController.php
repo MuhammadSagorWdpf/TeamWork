@@ -25,11 +25,15 @@ class DoctorController extends Controller
         $totalEarning = $earning->sum("fees");
         $totalAppoinments = $earning->count();
         $totalClient = User::where('role', 'client')->count();
-        $upcomingAppoinments = Appoinment::where("psychologist_id", $doctorId)->limit(5)->get();
+        $upcomingAppoinments = Appoinment::where("psychologist_id", $doctorId)->limit(3)->get();
 
         $doctorEmail = Auth::user()->email;
         $doctor = Psychologist::where('email', $doctorEmail)->first();
-        // return [$doctor, $doctorEmail];
+        
+        $user = Auth::user();
+        $notifications = $user->notifications;
+        //  return [$notifications];
+      
 
         return view("backend.doctor.layouts.doctorDashboard",
         compact(
@@ -38,6 +42,7 @@ class DoctorController extends Controller
             'totalAppoinments',
             'upcomingAppoinments',
             'doctor',
+            'notifications',
         ));
     }
 
@@ -255,5 +260,14 @@ class DoctorController extends Controller
                         ->pluck('slot');
 
         return $matchedData;
+    }
+
+    public function markAsRead($id)
+    {
+        if($id)
+        {
+            Auth::user()->unreadNotifications->where('id', $id)->markAsRead();
+        }
+        return redirect()->back();
     }
 }

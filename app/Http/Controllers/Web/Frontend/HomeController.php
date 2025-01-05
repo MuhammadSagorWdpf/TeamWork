@@ -9,9 +9,11 @@ use App\Models\CMS;
 use App\Models\Psychologist;
 use App\Models\Slot;
 use App\Models\User;
+use App\Notifications\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 
 class HomeController extends Controller
 {
@@ -56,6 +58,8 @@ class HomeController extends Controller
 
     public function apointmentStore(Request $request)
     {
+        // $doctor = User::where('role','doctor')->get();
+        // return $doctor;
        $request->validate([
             'first_name'=> 'required',
             'last_name'=> 'required',
@@ -98,6 +102,12 @@ class HomeController extends Controller
             'psychologist_id'=> $request->psychologist_id,
             'fees'=> $request->fees,
         ]);
+
+        // database notification
+        $doctor = User::where('role','doctor')->get();
+
+        Notification::send($doctor,new Appointment($data));
+       // $doctor->notify(new Appointment($data));
 
         if($data){
             flash()->success("Appoinment created successfully");
