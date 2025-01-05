@@ -3,15 +3,36 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appoinment;
+use App\Models\Client;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('backend.admin.layouts.adminDashboard');
+        if ($request->ajax()) {
+            // Get the data from the Cms model
+            $data = Client::with('user')->get();
+            // Return DataTables response
+            return DataTables::of($data)
+                ->addIndexColumn()
+                // Action buttons column with custom buttons (Edit, Delete)
+                ->addColumn('image', function ($row) {
+                    return '<img src="'.asset('client/'.$row->image).'" width="30%" height="30%">';
+                })
+                ->rawColumns(['image'])
+                // Return the DataTables response
+                ->make(true);
+        }
+
+        $totalEarnings = Appoinment::pluck('fees')->sum();
+        $totalClient = User::where('role', 'client')->count();
+        $totalAppoinments = Appoinment::count();
+        return view('backend.admin.layouts.adminDashboard',compact('totalEarnings','totalClient','totalAppoinments'));
     }
     public function appointments()
     {

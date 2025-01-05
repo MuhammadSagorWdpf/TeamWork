@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Web\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Appoinment;
+use App\Models\Client;
 use App\Models\Psychologist;
 use App\Models\Slot;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -18,7 +20,25 @@ class DoctorController extends Controller
     // doctor dashboard
     public function index()
     {
-        return view("backend.doctor.layouts.doctorDashboard");
+        $doctorId = Auth::user()->id;
+        $earning = Appoinment::where("psychologist_id", $doctorId)->get();
+        $totalEarning = $earning->sum("fees");
+        $totalAppoinments = $earning->count();
+        $totalClient = User::where('role', 'client')->count();
+        $upcomingAppoinments = Appoinment::where("psychologist_id", $doctorId)->limit(5)->get();
+
+        $doctorEmail = Auth::user()->email;
+        $doctor = Psychologist::where('email', $doctorEmail)->first();
+        // return [$doctor, $doctorEmail];
+
+        return view("backend.doctor.layouts.doctorDashboard",
+        compact(
+            'totalEarning',
+            'totalClient',
+            'totalAppoinments',
+            'upcomingAppoinments',
+            'doctor',
+        ));
     }
 
     // slots page

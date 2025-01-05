@@ -15,7 +15,13 @@ class DashboardController extends Controller
 {
     public function clientDashboard()
     {
-        return view('backend.client.dashboard');
+        $client = Auth::user()->email;
+        $clientId = Client::where("email", $client)->first()->id;
+        $clientAppointments = Appoinment::where("client_id", $clientId)->with('psychologist')->get();
+        $doctors = Psychologist::paginate(3);
+        $upcamingCheckup = Appoinment::where('client_id', $clientId)->pluck('date');
+       // return $upcamingCheckup;
+        return view('backend.client.dashboard', compact('clientAppointments','doctors','upcamingCheckup'));
     }
 
     public function clientAppoinment(Request $request)

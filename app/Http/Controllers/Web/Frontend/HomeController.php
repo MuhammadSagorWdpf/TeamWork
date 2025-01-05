@@ -138,6 +138,12 @@ class HomeController extends Controller
             $image->move(public_path('client'), $imageName);
         }
 
+        $user =User::create([
+            'name'=> $request->first_name,
+            'email'=> $request->email,
+            'password'=> Hash::make($request->password),
+        ]);
+
         $data = Client::create([
             'first_name'=> $request->first_name,
             'last_name'=> $request->last_name,
@@ -152,14 +158,10 @@ class HomeController extends Controller
             'area_of_focus'=> $request->area_of_focus,
             'password'=> Hash::make($request->password),
             'image'=> $imageName,
-            'user_id'=> 2,
+            'user_id'=> $user->id,
         ]);
 
-        User::create([
-            'name'=> $request->first_name,
-            'email'=> $request->email,
-            'password'=> Hash::make($request->password),
-        ]);
+        
 
         if($data){
             flash()->success("Client created successfully");

@@ -11,5 +11,4 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js"></script>
 <script src="{{asset('admin-assets/js/toastify.js')}}"></script>
 
-
-   
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
